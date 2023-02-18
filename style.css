@@ -1,19 +1,52 @@
-.page {
+.content{
     margin: 0 auto;
     padding: 0;
     max-width: 880px;
-    height: 1217px;
+}
+
+.page {
+    margin: 0 auto;
+    padding: 0;
     background-color: black;
     font-family: Inter, sans-serif;
 }
 
+@media screen and (max-width: 900px) {
+    .content {
+        max-width: 880px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        max-width: 700px;
+    }
+}
+@media screen and (max-width: 320px) {
+    .content {
+        max-width: 282px;
+    }
+} 
+
 .header {
-    margin: 45px 0px 0px;
+    margin: 0 auto;
+    margin-top: 45px;
     max-width: 880px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     border-bottom: 1px solid rgba(84, 84, 84, 1);
+}
+@media screen and (max-width: 768px) {
+    .header {
+        max-width: 768px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .header {
+        margin-top: 28px;
+    }
 }
 
 .logo__white {
@@ -25,11 +58,28 @@
     height: 33px;
     margin-bottom: 41px;
 }
+@media screen and (max-width: 768px) {
+    .logo__white {
+        margin: 0px 0px 34px 34px;
+    }
+} 
+@media screen and (max-width: 320px) {
+    .logo__white {
+        margin: 0px 0px 32px 27px;
+    }
+} 
 
 .profile {
     padding: 0;
     margin-top: 40px;
     display: flex;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px){
+    .profile {
+        margin: 0 auto;
+        flex-direction: column;
+    }
 }
 
 .profile__avatar {
@@ -42,12 +92,35 @@
     border-radius: 50%;
 }
 
+@media screen and (max-width: 768px) {
+    .profile__avatar {
+        width: 90px;
+        min-width: 90px;
+        height: 90px;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px){
+    .profile__avatar {
+        margin: 0 auto;
+        width: 120px;
+        min-width: 120px;
+        height: 120px;
+    }
+}
+
 .profile__info {
     margin-left: 30px;
     align-self: center;
 }
+@media screen and (min-width: 320px) and (max-width: 767px){
+    .profile__info {
+        margin: 0;
+    }
+}
 
-.profile__info_name {
+
+.profile__info-name {
     margin: 0;
     font-size: 42px;
     color: #FFFFFF;
@@ -55,7 +128,22 @@
     font-weight: 500;
 }
 
-.profile__info_job {
+@media screen and (max-width: 768px) {
+    .profile__info-name {
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .profile__info-name {
+        margin: 0 auto;
+        font-size: 27px;
+        text-align: center;
+        margin-top: 26px;
+    }
+}
+
+.profile__info-job {
     margin: 0;
     font-size: 18px;
     color: #FFFFFF;
@@ -63,7 +151,20 @@
     font-weight: 400;
 }
 
-.profile__button_edit {
+@media screen and (max-width: 768px) {
+    .profile__info-job {
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 320px) {
+    .profile__info-job {
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 36px;
+    }
+}
+
+.profile__button-edit {
     min-width: 24px;
     height: 24px;
     background: url(././images/edit-button.svg) center no-repeat;
@@ -74,15 +175,25 @@
     margin: 0px 0px 17px 18px;
 }
 
-.profile__button_edit:hover {
+.profile__button-edit:hover {
     opacity: 0.6;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px){
+    .profile__button-edit {
+        min-width: 18px;
+        height: 18px;
+        display: flex;
+        position: absolute;
+        margin: 160px 0px 0px 220px;
+    }
 }
 
 .icon {
     margin: 0 auto;
 }
 
-.profile__button_add {
+.profile__button-add {
     margin: 0;
     background: url(././images/Vector_pluse.svg) center no-repeat;
     background-size: 15%;
@@ -95,32 +206,62 @@
     margin-left: auto;
 }
 
-.profile__button_add:hover {
+.profile__button-add:hover {
     opacity: 0.6;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .profile__button-add {
+        margin: 0 auto;
+        width: 282px;
+        min-width: 282px;
+        height: 50px;
+        background-size: 5%;
+    }
 }
 
 .elements {
     margin: 0 auto;
     padding: 0;
     margin-top: 50px;
-    max-width: 880px;
-    max-height: 742px;
+    max-width: 100%;
     display: grid;
     row-gap: 20px;
 }
 
+@media screen and (max-width: 768px) {
+    .elements {
+        max-width: 584px;
+    }
+}
+
 .element__grids {
     margin: 0;
-    max-width: 880px;
-    max-height: 742px;
+    max-width: 100%;
     padding: 0;
     display: grid;
+    object-fit: cover;
     grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
     row-gap: 20px;
     column-gap: 17px;
 }
 
-.element__grid {
+@media screen and (min-width: 768px) and (max-width: 1023px){
+    .element__grids {
+        margin: 0 auto;
+        gap: 20px;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 650px){
+    .element__grids {
+        margin: 0 auto;
+        gap: 10px;
+        grid-template-columns: 1fr;
+    }
+}
+
+.element {
     margin: 0;
     padding: 0;
     max-width: 282px;
@@ -130,14 +271,14 @@
     list-style: none;
 }
 
-.element__grid_image {
+.element__image {
     max-width: 282px;
     max-height: 282px;
     background-size: cover;
     border-radius: 10px 10px 0px 0px;
 }
 
-.element__grid_info {
+.element__info {
     margin: 0;
     max-width: 282px;
     background-color: #FFFFFF;
@@ -146,7 +287,7 @@
     border-radius: 0px 0px 10px 10px;
 }
 
-.element__grid_title {
+.element__title {
     font-size: 24px;
     line-height: 29px;
     font-weight: 900;
@@ -156,7 +297,7 @@
     overflow: hidden;
 }
 
-.element__grid_like {
+.element__like {
     border: none;
     background: url(././images/icon_like_outline.svg) center no-repeat;
     background-size: 100%;
@@ -169,11 +310,11 @@
     transition: 0.3s;
 }
 
-.element__grid_like:hover {
+.element__grid-like:hover {
     opacity: 0.5;
 }
 
-.element__grid_like_active {
+.element__grid_like-active {
     opacity: 1;
     background: url(././images/like_filled.svg) center no-repeat;
 }
@@ -183,4 +324,15 @@
     font-size: 18px;
     line-height: 22px;
     color: rgba(84, 84, 84, 1);
+}
+
+@media screen and (max-width: 768px) {
+    .footer__copyright {
+        margin-top: 50px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .footer__copyright {
+        margin: 48px 19px 36px 19px;
+    }
 }
