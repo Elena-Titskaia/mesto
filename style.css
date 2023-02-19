@@ -186,7 +186,7 @@
     align-self: center;
     position: absolute;
     right: 0;
-    transform:translate(40px, 12px);
+    transform:translate(40px, 14px);
 }
 
 .profile__button-edit:hover {
@@ -357,4 +357,111 @@
     .footer__copyright {
         margin: 48px 19px 34px 34px;
     }
+}
+.popup{
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    display:flex;
+}
+.popup__opened{
+    display: block;
+}
+.popup__container{
+    margin: auto auto auto auto;
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    max-width: 430px;
+    max-height: 330px;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 320px) {
+    .popup__container {
+        max-width: 282px;
+        max-height: 322px;
+    }
+}
+
+.popup__text{
+    margin: 0 auto;
+    width: 358px;
+    height: 27px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+    font-size: 14px;
+    font-weight: 400;
+    color: black;
+}
+@media screen and (max-width: 320px) {
+    .popup__text {
+        max-width: 238px;
+        max-height: 27px;
+    }
+}
+
+.popup__title{
+    margin: 34px 64px 54px 36px;
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 900;
+}
+
+@media screen and (max-width: 320px) {
+    .popup__title {
+        font-size: 18px;
+        line-height: 22px;
+        font-weight: 900;
+        margin: 25px 22px 45px 22px;
+    }
+}
+
+.form__submit-btn{
+    margin: 0 auto;
+    margin-top: 18px;
+    background-color: black;
+    color: #FFFFFF;
+    width: 358px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.8px;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+}
+.form__submit-btn:hover{
+    opacity: 0.8;
+}
+@media screen and (max-width: 320px) {
+    .form__submit-btn {
+        max-width: 238px;
+        max-height: 46px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 17px;
+        
+    }
+}
+
+.popup__close{
+    border: none;
+    background: url(././images/Close\ Icon.svg) center no-repeat;
+    background-size: 100%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    position: absolute;
+    transform:translate(430px, -40px);
+}
+
+.popup__close:hover{
+    opacity: 0.6;
 }
