@@ -1,0 +1,8 @@
+.element__info {
+    margin: 0;
+    max-width: 282px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0px 0px 10px 10px;
+}

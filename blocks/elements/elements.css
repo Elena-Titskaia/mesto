@@ -1,0 +1,14 @@
+.elements {
+    margin: 0 auto;
+    padding: 0;
+    margin-top: 50px;
+    max-width: 100%;
+    display: grid;
+    row-gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .elements {
+        max-width: 584px;
+    }
+}

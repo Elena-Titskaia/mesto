@@ -4,22 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Место</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./page/index.css" />
   </head>
   <body class="page">
     <header class="header">
       <a class="logo__white" href=""></a>
     </header>
-    <main class="content">
+    <main class="content"> 
       <section class="profile">
         <div class="profile__avatar"></div>
         <div class="profile__info">
-          <h1 class="profile__info-name">Жак-Ив Кусто</h1>
-          <p class="profile__info-job">Исследователь океана</p>
+          <h1 class="profile__info-name"></h1>
+          <p class="profile__info-job"></p>
           <button class="profile__button-edit"></button>
         </div>
         <button class="profile__button-add"></button>
       </section>
+      <div class="popup">
+        <form id="form">
+          <div class="popup__container">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <input id="name" placeholder="Жак-Ив Кусто" class="popup__text popup__text_type_name">
+          <input id="job" placeholder="Исследователь океана" class="popup__text popup__text_type_job">
+          <button type="submit" class="form__submit-btn">Сохранить</button>
+          </form>
+          <button type="button" class="popup__close"></button>
+        </div>
+      </div>
       <section class="elements">
         <ul class="element__grids">
           <li class="element">
@@ -35,18 +46,9 @@
               <p class="element__title">Гора Эльбрус</p>
               <button class="element__like"></button>
             </div>
-            <section class="popup popup__opened">
-              <div class="popup__container">
-                <h2 class="popup__title">Редактировать профиль</h2>
-                <input type="text" placeholder="Жак-Ив Кусто" class="popup__text popup__text_type_name">
-                <input type="text" placeholder="Исследователь океана" class="popup__text popup__text_type_job">
-                <button class="form__submit-btn form__submit-btn_action_save">Сохранить</button>
-                <button class="popup__close"></button>
-              </div>
-            </section>
           </li>
           <li class="element">
-            <img class="element__image" src="././images/3.jpg" />
+            <img class="element__image" src="././images/1.jpg" />
             <div class="element__info">
               <p class="element__title">Зябликово</p>
               <button class="element__like"></button>
@@ -79,6 +81,6 @@
     <footer class="footer">
       <p class="footer__copyright">© 2023. Тицкая Елена</p>
     </footer>
-    <script src="script.js"></script>
+    <script src="./script/index.js"></script>
   </body>
 </html>

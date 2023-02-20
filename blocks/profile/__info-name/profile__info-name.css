@@ -1,0 +1,23 @@
+.profile__info-name {
+    margin: 0;
+    font-size: 42px;
+    color: #FFFFFF;
+    line-height: 48px;
+    font-weight: 500;
+    position: relative;
+}
+
+@media screen and (max-width: 768px) {
+    .profile__info-name {
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .profile__info-name {
+        margin: 0 auto;
+        font-size: 27px;
+        text-align: center;
+        margin-top: 26px;
+    }
+}
