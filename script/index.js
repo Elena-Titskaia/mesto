@@ -1,19 +1,20 @@
 let body = document.querySelector('body');
 let content = document.querySelector('.content');
+let page = document.querySelector('.page');
 let name = 'Жак-Ив Кусто'
 let job = 'Исследователь океана'
 
 
-const profileButtonEdit = content.querySelector('.profile__button-edit');
-const popupClose = content.querySelector('.popup__close');
+const profileButtonEdit = document.querySelector('.profile__button-edit');
+const popupClose = document.querySelector('.popup__close');
 
-const form = content.querySelector('#form');
+const form = document.querySelector('#form');
 
-const nameInput = content.querySelector('#name');
-const jobInput = content.querySelector('#job');
+const nameInput = document.querySelector('#name');
+const jobInput = document.querySelector('#job');
 
-const profileInfoName = content.querySelector('.profile__info-name');
-const profileInfoJob = content.querySelector('.profile__info-job');
+const profileInfoName = document.querySelector('.profile__info-name');
+const profileInfoJob = document.querySelector('.profile__info-job');
 
 function changeProfileInfo (name, job){
     profileInfoName.textContent = name
@@ -21,7 +22,7 @@ function changeProfileInfo (name, job){
 }
 changeProfileInfo(name, job);
 
-const popup = content.querySelector('.popup');
+const popup = document.querySelector('.popup');
 
 profileButtonEdit.addEventListener('click', function(){
     nameInput.setAttribute('value', name);

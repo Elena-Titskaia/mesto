@@ -20,7 +20,7 @@
 @media screen and (min-width: 320px) and (max-width: 650px) {
     .elements__grid {
         margin: 0 auto;
-        gap: 10px;
+        gap: 20px;
         grid-template-columns: 1fr;
     }
 }

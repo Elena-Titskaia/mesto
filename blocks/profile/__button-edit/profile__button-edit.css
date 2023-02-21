@@ -8,7 +8,7 @@
     align-self: center;
     position: absolute;
     right: 0;
-    transform: translate(40px, 14px);
+    transform: translate(48px, 10px);
 }
 
 .profile__button-edit:hover {
@@ -19,17 +19,11 @@
     .profile__button-edit {
         min-width: 18px;
         height: 18px;
-        display: flex;
-        position: absolute;
     }
 }
 
 @media screen and (max-width: 320px) {
     .profile__button-edit {
-        min-width: 18px;
-        height: 18px;
-        display: flex;
-        position: absolute;
-        transform: translate(30px, 42px);
+        transform: translate(30px, 32px);
     }
 }

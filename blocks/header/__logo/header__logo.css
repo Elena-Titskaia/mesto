@@ -1,5 +1,5 @@
-.logo {
-    background-image: url(../../images/logo_white.svg);
+.header__logo {
+    background-image: url(../../../images/logo_white.svg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -9,13 +9,15 @@
 }
 
 @media screen and (max-width: 768px) {
-    .logo {
+    .header__logo {
         margin: 0px 0px 34px 92px;
     }
 }
 
 @media screen and (max-width: 320px) {
-    .logo {
+    .header__logo {
+        width: 104px;
+        height: 24px;
         margin: 0px 0px 32px 27px;
     }
 }

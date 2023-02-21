@@ -2,6 +2,7 @@
     margin: 66px 0px 60px 200px;
     font-size: 18px;
     line-height: 22px;
+    font-weight: 400;
     color: rgba(84, 84, 84, 1);
 }
 
@@ -19,6 +20,8 @@
 
 @media screen and (max-width: 320px) {
     .footer__copyright {
+        font-size: 14px;
+        line-height: 17px;
         margin: 48px 19px 34px 19px;
     }
 }
