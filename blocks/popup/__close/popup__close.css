@@ -13,10 +13,22 @@
     opacity: 0.6;
 }
 
+@media screen and (max-width: 1024px) {
+    .popup__close {
+        transform: translate(730px, 360px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .popup__close {
+        transform: translate(600px, 220px);
+    }
+}
+
 @media screen and (max-width: 320px) {
     .popup__close {
         width: 20px;
         height: 20px;
-        transform: translate(260px, -30px);
+        transform: translate(280px, 235px);
     }
 }
