@@ -1,4 +1,4 @@
-.element__like {
+.elements__like {
     border: none;
     background: url(../../../images/icon_like_outline.svg) center no-repeat;
     background-size: 100%;
@@ -11,11 +11,11 @@
     transition: 0.2s;
 }
 
-.element__like:hover {
+.elements__like:hover {
     opacity: 0.3;
 }
 
-.element__like-active {
+.elements__like-active {
     opacity: 1;
     background: url(../../../images/like_filled.svg) center no-repeat;
 }
