@@ -16,36 +16,33 @@ const jobInput = document.querySelector('#job');
 const profileInfoName = document.querySelector('.profile__info-name');
 const profileInfoJob = document.querySelector('.profile__info-job');
 
-function changeProfileInfo (name, job){
+function showpopup(){
+    popup.classList.add('popup__opened');
+    nameInput.setAttribute('value', name);
+    jobInput.setAttribute('value', job);
     profileInfoName.textContent = name
     profileInfoJob.textContent = job
 }
-changeProfileInfo(name, job);
 
-const popup = document.querySelector('.popup');
-
-profileButtonEdit.addEventListener('click', function(){
-    nameInput.setAttribute('value', name);
-    jobInput.setAttribute('value', job);
-    showpopup();
-})
+profileButtonEdit.addEventListener('click', showpopup)
+// 1. Функция открытия модального окна. 
 
 function hidepopup(){
     popup.classList.remove('popup__opened');
-    body.classList.remove('content__stop');
 }
-
-function showpopup(){
-    popup.classList.add('popup__opened');
-    body.classList.add('content__stop');
-}
-
-form.addEventListener('submit', function (event){
-  event.preventDefault()  
-  name = nameInput.value
-  job = jobInput.value
-  changeProfileInfo(name, job); 
-  hidepopup();
-})
-
 popupClose.addEventListener('click', hidepopup)
+// 2. Функция закрытия модального окна
+
+const popup = document.querySelector('.popup');
+
+function saveChangeAttributeValue (event){
+    event.preventDefault()  
+    name = nameInput.value
+    job = jobInput.value
+    showpopup(name, job); 
+    hidepopup();
+}
+form.addEventListener('submit', saveChangeAttributeValue);
+//3. Функция сохранения данных(то есть отправки формы)
+
+

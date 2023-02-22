@@ -1,9 +1,10 @@
 .elements__container {
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
     max-width: 282px;
-    min-height: 361px;
     display: grid;
     object-fit: cover;
-    list-style: none;
 }

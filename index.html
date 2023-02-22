@@ -6,110 +6,121 @@
     <title>Место</title>
     <link rel="stylesheet" href="./pages/index.css">
   </head>
+  <!--Иван, добрый день! спасибо огромное за проверку и комментарии-->
   <body class="page">
     <header class="header">
       <a class="header__logo" href="#"></a>
     </header>
-    <div class="popup">
-        <div class="popup__container">
-          <h2 class="popup__title">Редактировать профиль</h2>
-          <form id="form" name="form_profile">
-          <input
-            id="name"
-            placeholder="Жак-Ив Кусто"
-            class="popup__text popup__text_type_name"
-          />
-          <input
-            id="job"
-            placeholder="Исследователь океана"
-            class="popup__text popup__text_type_job"
-          />
-          <button type="button" class="popup__close"></button>
-          <button type="submit" class="popup__submit-btn">Сохранить</button>
-        </form>
-        </div>
-    </div>
     <main class="content">
       <section class="profile">
         <div class="profile__avatar"></div>
         <div class="profile__info">
-          <h1 class="profile__info-name"></h1>
-          <p class="profile__info-job"></p>
+          <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+          <p class="profile__info-job">Исследователь океана</p>
           <button type="button" class="profile__button-edit"></button>
         </div>
         <button type="submit" class="profile__button-add"></button>
       </section>
       <section class="elements">
-        <ul class="elements__grid">
-          <li class="elements__container">
-            <img
+        <div class="elements__grid">
+          <article class="elements__container">
+            <div class="elements__info">
+              <img
               class="elements__image"
               src="././images/1.jpg"
               alt="озеро Байкал с высоты птьичего полета"
             />
-            <div class="elements__info">
-              <h3 class="elements__title">Озеро Байкал</h3>
-              <button class="elements__like"></button>
+            <div class="elements__data">
+              <h2 class="elements__title">Озеро Байкал</h2>
+              <button type="button" class="elements__like"></button>
             </div>
-          </li>
-          <li class="elements__container">
+            </div>
+          </article>
+          <article class="elements__container">
+            <div class="elements__info">
             <img
               class="elements__image"
               src="././images/2.jpg"
               alt="Вулкан Этна с высоты птьичего полета"
             />
-            <div class="elements__info">
-              <h3 class="elements__title">Вулкан Этна</h3>
-              <button class="elements__like"></button>
+            <div class="elements__data">
+              <h2 class="elements__title">Вулкан Этна</h2>
+              <button type="button" class="elements__like"></button>
             </div>
-          </li>
-          <li class="elements__container">
+            </div>
+          </article>
+          <article class="elements__container">
+            <div class="elements__info">
             <img
               class="elements__image"
               src="././images/6.jpg"
               alt="Поле с высоты птьичего полета с лошадьми"
             />
-            <div class="elements__info">
-              <p class="elements__title">Поле</p>
-              <button class="elements__like"></button>
+            <div class="elements__data">
+              <h2 class="elements__title">Поле</h2>
+              <button type="button" class="elements__like"></button>
             </div>
-          </li>
-          <li class="elements__container">
+          </div>
+          </article>
+          <article class="elements__container">
+            <div class="elements__info">
             <img
               class="elements__image"
               src="././images/4.jpg"
               alt="Андреевская пустынь Соловецкого монастыря"
             />
-            <div class="elements__info">
-              <h3 class="elements__title">Соловецкие острова</h3>
-              <button class="elements__like"></button>
+            <div class="elements__data">
+              <h2 class="elements__title">Соловецкие острова</h2>
+              <button type="button" class="elements__like"></button>
             </div>
-          </li>
-          <li class="elements__container">
+          </div>
+          </article>
+          <article class="elements__container">
+            <div class="elements__info">
             <img
               class="elements__image"
               src="././images/5.jpg"
               alt="Холм Божий дар Ставропольский край"
             />
-            <div class="elements__info">
-              <p class="elements__title">Холм</p>
-              <button class="elements__like"></button>
+            <div class="elements__data">
+              <h2 class="elements__title">Холм</h2>
+              <button type="button" class="elements__like"></button>
             </div>
-          </li>
-          <li class="elements__container">
+          </div>
+          </article>
+          <article class="elements__container">
+            <div class="elements__info">
             <img
               class="elements__image"
               src="././images/3.jpg"
               alt="Водобашня в поселке Таёжный"
             />
-            <div class="elements__info">
-              <p class="elements__title">Красноярский край</p>
-              <button class="elements__like"></button>
+            <div class="elements__data">
+              <h2 class="elements__title">Красноярский край</h2>
+              <button type="button" class="elements__like"></button>
             </div>
-          </li>
-        </ul>
+          </div>
+          </article>
+        </div>
       </section>
     </main>
+    <div class="popup">
+      <div class="popup__container">
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <form class="popup__form" id="form" name="form-profile">
+        <input
+          id="name" type="text" value="Лена Тицкая"
+          class="popup__text popup__text_type_name"
+        />
+        <input
+          id="job" type="text" value="Космонавт"
+          class="popup__text popup__text_type_job"
+        />
+        <button type="button" class="popup__close"></button>
+        <button type="submit" class="popup__submit-btn">Сохранить</button>
+      </form>
+      </div>
+  </div>
     <footer class="footer">
       <p class="footer__copyright">© 2023. Тицкая Елена</p>
     </footer>

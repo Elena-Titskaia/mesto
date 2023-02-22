@@ -2,11 +2,9 @@
     border: none;
     background: url(../../../images/icon_like_outline.svg) center no-repeat;
     background-size: 100%;
-    margin: 0;
     width: 22px;
     height: 19px;
     cursor: pointer;
-    align-self: center;
     margin-right: 20px;
     transition: 0.2s;
 }
