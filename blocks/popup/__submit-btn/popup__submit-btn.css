@@ -17,12 +17,18 @@
     opacity: 0.8;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 768px) {
     .popup__submit-btn {
-        max-width: 238px;
+        max-width: 256px;
         max-height: 46px;
         font-size: 14px;
         line-height: 17px;
         margin-top: 15px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .popup__submit-btn {
+        max-width: 238px;
     }
 }

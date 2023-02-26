@@ -15,6 +15,13 @@
     transform: translate(-50%, -50%);
 }
 
+@media screen and (max-width: 768px) {
+    .popup__container {
+        max-width: 300px;
+        min-height: 380px;
+    }
+}
+
 @media screen and (max-width: 320px) {
     .popup__container {
         max-width: 282px;

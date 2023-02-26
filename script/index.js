@@ -1,45 +1,37 @@
-let body = document.querySelector('body');
-let content = document.querySelector('.content');
+
 let page = document.querySelector('.page');
-let name = 'Жак-Ив Кусто'
-let job = 'Исследователь океана'
+let content = document.querySelector('.content');
+let popup = document.querySelector('.popup'); //модальное окно 
+let form = document.querySelector('#form'); // тег формы
+let profileButtonEdit = document.querySelector('.profile__button-edit');//кнопка открытия
+let popupClose = document.querySelector('.popup__close');// кнопка закрытия
+let profileInfoName = document.querySelector('.profile__info-name'); // текстовый эл-т
+let profileInfoJob = document.querySelector('.profile__info-job'); // текстовый эл-т
+let nameInput = document.querySelector('.popup__text_type_name'); // поле ввода имя
+let jobInput = document.querySelector('.popup__text_type_job'); // поле ввода работа
 
 
-const profileButtonEdit = document.querySelector('.profile__button-edit');
-const popupClose = document.querySelector('.popup__close');
-
-const form = document.querySelector('#form');
-
-const nameInput = document.querySelector('#name');
-const jobInput = document.querySelector('#job');
-
-const profileInfoName = document.querySelector('.profile__info-name');
-const profileInfoJob = document.querySelector('.profile__info-job');
 
 function showpopup(){
-    popup.classList.add('popup__opened');
-    nameInput.setAttribute('value', name);
-    jobInput.setAttribute('value', job);
-    profileInfoName.textContent = name
-    profileInfoJob.textContent = job
+    popup.classList.add('popup_opened');
+    nameInput.value = profileInfoName.textContent;
+    jobInput.value = profileInfoJob.textContent;
 }
 
 profileButtonEdit.addEventListener('click', showpopup)
 // 1. Функция открытия модального окна. 
 
 function hidepopup(){
-    popup.classList.remove('popup__opened');
+    popup.classList.remove('popup_opened');
 }
 popupClose.addEventListener('click', hidepopup)
 // 2. Функция закрытия модального окна
 
-const popup = document.querySelector('.popup');
 
 function saveChangeAttributeValue (event){
     event.preventDefault()  
-    name = nameInput.value
-    job = jobInput.value
-    showpopup(name, job); 
+    profileInfoName.textContent = nameInput.value;
+    profileInfoJob.textContent = jobInput.value;
     hidepopup();
 }
 form.addEventListener('submit', saveChangeAttributeValue);

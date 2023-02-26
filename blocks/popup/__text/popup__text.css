@@ -9,9 +9,9 @@
     font-weight: 400;
     color: black;
 }
-
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 768px) {
     .popup__text {
+        padding: 0;
         max-width: 238px;
         max-height: 27px;
     }
