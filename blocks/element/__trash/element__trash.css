@@ -1,0 +1,15 @@
+.element__trash {
+    padding: 0;
+    border: none;
+    background: url(../../../images/deleted_icon.svg) center no-repeat;
+    background-size: 100%;
+    width: 18px;
+    height: 19.3px;
+    cursor: pointer;
+    margin-left: 250px;
+    transition: 0.2s;
+}
+
+.element__trash:hover {
+    opacity: 0.6;
+}

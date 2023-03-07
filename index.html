@@ -6,8 +6,7 @@
     <title>Место</title>
     <link rel="stylesheet" href="./pages/index.css" />
   </head>
-  <!--Иван, добрый день) все ок, все равно можно проходить дальше тренажер, так что проверка
-  не задерживает дальнейшую программу;)-->
+  <!---->
   <body class="page">
     <header class="header">
       <a class="header__logo" href="#"></a>
@@ -23,6 +22,21 @@
         <button type="button" class="profile__button-add"></button>
       </section>
       <section class="elements">
+          <section class="elements">
+          <article class="element">
+          <div class="elements__grid">
+            <template id="element-template">
+            <img class="element__image" src="#" alt="#" />
+            <div class="element__data">
+              <h2 class="element__title"></h2>
+              <button type="button" class="element__like"></button>
+              <button type="button" class="element__trash"></button>
+            </template>
+            </div>
+          </div>
+          </article>
+      </section>
+        <!--
         <div class="elements__grid">
           <article class="element">
             <div class="element__info">
@@ -103,7 +117,7 @@
             </div>
           </article>
         </div>
-      </section>
+           -->
     </main>
     <div class="popup">
       <div class="popup__container">
@@ -124,6 +138,29 @@
             class="popup__text popup__text_type_job"
           />
           <button type="submit" class="popup__submit-btn">Сохранить</button>
+        </form>
+        <button type="button" class="popup__close"></button>
+      </div>
+    </div>
+    <div class="popup">
+      <div class="popup__card">
+        <h2 class="popup__title">Новое место</h2>
+        <form class="popup__form" id="form-card" name="form-card">
+          <input
+            id="title"
+            type="text"
+            value="Название"
+            name="title"
+            class="popup__text popup__text_type_title"
+          />
+          <input
+            id="link"
+            type="url"
+            value="Ссылка на картинку"
+            name="link"
+            class="popup__text popup__text_type_link"
+          />
+          <button type="submit" class="popup__submit-btn">Создать</button>
         </form>
         <button type="button" class="popup__close"></button>
       </div>
