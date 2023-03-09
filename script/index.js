@@ -1,35 +1,19 @@
 
-let page = document.querySelector('.page');
-let content = document.querySelector('.content');
-let popup = document.querySelector('.popup'); //модальное окно 
-let popupEdit = document.querySelector('#form');// это для профиля
-
-
-
 //5
-
-const closeElementButton = document.querySelector('.popup__close_type_add');// крестик
-const submitButtonElement = document.querySelector('.popup__submit-btn_type_add');
-const popupElement = document.querySelector('.popup_type_add');
-
-const elementArea = document.querySelector('.elements'); // контейнер, куда добавляем элементы
-let elementImage = document.querySelector('.element__image');
-let elementTitle = document.querySelector('.element__title');
-let imageInput = document.querySelector('.popup__text_type_link');
-let titleInput = document.querySelector('.popup__text_type_title');
 
 // 1 // Переменные для профиля 
 const popupEditProfile = document.querySelector('.popup_type_edit');// это попап профиля
-const  profileButtonEdit = document.querySelector('.profile__button-edit');//кнопка открытия
+const profileButtonEdit = document.querySelector('.profile__button-edit');//кнопка открытия
 const profileEditForm = document.querySelector('#form');// это для профиля
 const profileInfoName = document.querySelector('.profile__info-name'); // текстовый эл-т
 const profileInfoJob = document.querySelector('.profile__info-job'); // текстовый эл-т
 //button and input
-const  popupCloseProfile = popupEditProfile.querySelector('.popup__close');// кнопка закрытия
+const popupCloseProfile = popupEditProfile.querySelector('.popup__close');// кнопка закрытия
 const nameInput = popupEditProfile.querySelector('.popup__text_type_name'); // поле ввода имя
 const jobInput = popupEditProfile.querySelector('.popup__text_type_job'); // поле ввода работы
 
 // 2 // Переменные для добавления карточек
+const elementArea = document.querySelector('.elements'); // контейнер, куда добавляем элементы
 const popupAddElement = document.querySelector('.popup_type_add');
 const addElementButton = document.querySelector('.profile__button-add'); //кнопка открытия для карточки
 const formElementAdd = document.querySelector('#form_type_add');
@@ -37,6 +21,15 @@ const formElementAdd = document.querySelector('#form_type_add');
 const popupCloseAddElement = popupAddElement.querySelector('.popup__close_type_add');
 const addImageInput = popupAddElement.querySelector('.popup__text_type_link');
 const addTitleInput = popupAddElement.querySelector('.popup__text_type_title');
+
+// 3 // Переменные для открытия карточки 
+const popupFullView = document.querySelector('.popup_type_image');
+//button
+const popupCloseFullImageView = popupFullView.querySelector('.popup__close_type_image');
+const popupImageCard = popupFullView.querySelector('.popup__image_card');
+const popupImageName = popupFullView.querySelector('.popup__image_name');
+
+
 
 const initialCards = [
   {
@@ -75,73 +68,83 @@ function createElement (title, link){
   const newElement = element.cloneNode(true);
     const elementImage = element.querySelector('.element__image');
     const elementTitle = element.querySelector('.element__title');
-
     elementImage.src = link;
     elementTitle.textContent = title;
 
-    //element.querySelector('.element__like')
-    //element.addEventListener('click', function (event){
-    //  event.target.classlist.toggle('elements__like_active');
-    //});
   return element;
 }
-
-
-
-//тут только добавление новых карточек через нажатие на кнопку
-function addElement(){
-  addElementButton.addEventListener('click',function(event){
-    event.elementArea.append(createElement(titleInput, imageInput));
-  });
-}
-
-//тут лайк И ОН НЕ РАБОТАЕТ//
-addLike()
-function addLike(){
-  likeButton.addEventListener('click',function(event){
-    event.target.classList.toggle('.element__like_active');
-  })
-}
-
-
-profileButtonAdd.addEventListener('click', () => {
-  addElement(titleInput.value, imageInput.value);
-  titleInput.value = '';
-  imageInput.value = '';
-  closePopup('.');
-});
-
- 
-function showpopup(){ 
+// all popups open/close
+function showpopup(popupElement){ 
   popup.classList.add('popup_opened'); 
 } 
+function hidepopup(popupElement){
+  popup.classList.remove('popup_opened'); 
+}
+// all popups open/close
 
-profileButtonEdit.addEventListener('click', showpopup)
-addElementButton.addEventListener('click', showpopup)
+
+function showImageFullViewPopup (){ 
+  popup.classList.add(popupFullView); 
+} 
+function hideImageFullViewPopup (){ 
+  popup.classList.remove(popupFullView); 
+} 
+
+//profile
+function showEditProfilePopup (){ 
+  popup.classList.add(popupEditProfile); 
+} 
+
+function hideEditProfilePopup{
+  hidepopup(popupEditProfile)
+}
+profileButtonEdit.addEventListener('click', showEditProfilePopup)
+profileButtonEdit.addEventListener('click', hideEditProfilePopup)
 
 profileButtonEdit.addEventListener('click', () => {
   nameInput.value = profileInfoName.textContent; 
   jobInput.value = profileInfoJob.textContent;
-  showpopup (popupEdit);
+  showpopup (popupEditProfile);
 });
-
 
 function saveChangeAttributeValue (event){ 
   event.preventDefault()   
   profileInfoName.textContent = nameInput.value; 
   profileInfoJob.textContent = jobInput.value; 
-  hidepopup(); 
+  hidepopup(popupEditProfile); 
 } 
 form.addEventListener('submit', saveChangeAttributeValue); 
+////profile
 
-
-
-
-// 1. Функция открытия модального окна.  
-
-function hidepopup(){ 
-  popup.classList.remove('popup_opened'); 
+///add card
+function showEditElementPopup (){ 
+  popup.classList.add(popupAddElement); 
 } 
-popupClose.addEventListener('click', hidepopup) 
-// 2. Функция закрытия модального окна 
+function hideEditElementPopup (){ 
+  popup.classList.remove(popupAddElement); 
+} 
+popupAddElement.addEventListener('click', showEditProfilePopup)
+popupAddElement.addEventListener('click', hideEditProfilePopup)
+
+function addNewElement (event) {
+  event.preventDefault()
+}
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
 
