@@ -1,4 +1,4 @@
-.popup__container {
+.popup__card {
     position: fixed;
     margin: 0;
     background-color: rgb(255, 255, 255);
@@ -16,14 +16,14 @@
 }
 
 @media screen and (max-width: 768px) {
-    .popup__container {
+    .popup__card {
         max-width: 300px;
         min-height: 380px;
     }
 }
 
 @media screen and (max-width: 320px) {
-    .popup__container {
+    .popup__card {
         max-width: 282px;
         min-height: 322px;
     }

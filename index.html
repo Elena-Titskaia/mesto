@@ -17,26 +17,25 @@
         <div class="profile__info">
           <h1 class="profile__info-name">Жак-Ив Кусто</h1>
           <p class="profile__info-job">Исследователь океана</p>
-          <button type="button" class="profile__button-edit"></button>
+          <button type="button"  class="profile__button-edit"></button>
         </div>
-        <button type="button" class="profile__button-add"></button>
-      </section>
+        <button type="button"  class="profile__button-add"></button>
+      </section> 
       <section class="elements">
-          <section class="elements">
+        <template id="element-template">
           <article class="element">
-          <div class="elements__grid">
-            <template id="element-template">
-            <img class="element__image" src="#" alt="#" />
-            <div class="element__data">
-              <h2 class="element__title"></h2>
-              <button type="button" class="element__like"></button>
+            <div class="elements__grid">
               <button type="button" class="element__trash"></button>
-            </template>
+              <img class="element__image" src="#" alt="#" />
+              <div class="element__data">
+                <h2 class="element__title"></h2>
+                <button type="button" class="element__like"></button>
+              </div>
             </div>
-          </div>
           </article>
+        </template>
       </section>
-        <!--
+      <!--
         <div class="elements__grid">
           <article class="element">
             <div class="element__info">
@@ -119,7 +118,7 @@
         </div>
            -->
     </main>
-    <div class="popup">
+    <section class="popup popup_type_edit">
       <div class="popup__container">
         <h2 class="popup__title">Редактировать профиль</h2>
         <form class="popup__form" id="form" name="form-profile">
@@ -141,11 +140,11 @@
         </form>
         <button type="button" class="popup__close"></button>
       </div>
-    </div>
-    <div class="popup">
+    </section>
+    <section class="popup popup_type_add">
       <div class="popup__card">
         <h2 class="popup__title">Новое место</h2>
-        <form class="popup__form" id="form-card" name="form-card">
+        <form class="popup__form" id="form_type_add" name="form-card">
           <input
             id="title"
             type="text"
@@ -160,11 +159,19 @@
             name="link"
             class="popup__text popup__text_type_link"
           />
-          <button type="submit" class="popup__submit-btn">Создать</button>
+          <button type="submit" class="popup__submit-btn popup__submit-btn_type_add">Создать</button>
         </form>
-        <button type="button" class="popup__close"></button>
+        <button type="button" class="popup__close popup__close_type_add"></button>
       </div>
-    </div>
+    </section>
+    <section class="popup popup_type_image">
+      <div class="popup__image">
+        <img class="popup__image_card" src="#" alt="#">
+        <p class="popup__image_name"></p>
+      </div>
+       
+        <button type="button" class="popup__close popup__close_type_image"></button>
+    </section>
     <footer class="footer">
       <p class="footer__copyright">© 2023. Тицкая Елена</p>
     </footer>
