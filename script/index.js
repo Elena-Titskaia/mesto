@@ -2,22 +2,15 @@
 let page = document.querySelector('.page');
 let content = document.querySelector('.content');
 let popup = document.querySelector('.popup'); //модальное окно 
-const popupEditProfile = document.querySelector('.popup_type_edit');// это попап профиля
 let popupEdit = document.querySelector('#form');// это для профиля
-let profileButtonEdit = document.querySelector('.profile__button-edit');//кнопка открытия
-let popupClose = document.querySelector('.popup__close');// кнопка закрытия
-let profileInfoName = document.querySelector('.profile__info-name'); // текстовый эл-т
-let profileInfoJob = document.querySelector('.profile__info-job'); // текстовый эл-т
-let nameInput = document.querySelector('.popup__text_type_name'); // поле ввода имя
-let jobInput = document.querySelector('.popup__text_type_job'); // поле ввода работы
+
 
 
 //5
-const addElementButton = document.querySelector('.profile__button-add'); //кнопка открытия для карточки
+
 const closeElementButton = document.querySelector('.popup__close_type_add');// крестик
 const submitButtonElement = document.querySelector('.popup__submit-btn_type_add');
 const popupElement = document.querySelector('.popup_type_add');
-const formElementAdd = document.querySelector('#form_type_add');
 
 const elementArea = document.querySelector('.elements'); // контейнер, куда добавляем элементы
 let elementImage = document.querySelector('.element__image');
@@ -25,8 +18,25 @@ let elementTitle = document.querySelector('.element__title');
 let imageInput = document.querySelector('.popup__text_type_link');
 let titleInput = document.querySelector('.popup__text_type_title');
 
-// Добавить лайк и удаление
+// 1 // Переменные для профиля 
+const popupEditProfile = document.querySelector('.popup_type_edit');// это попап профиля
+const  profileButtonEdit = document.querySelector('.profile__button-edit');//кнопка открытия
+const profileEditForm = document.querySelector('#form');// это для профиля
+const profileInfoName = document.querySelector('.profile__info-name'); // текстовый эл-т
+const profileInfoJob = document.querySelector('.profile__info-job'); // текстовый эл-т
+//button and input
+const  popupCloseProfile = popupEditProfile.querySelector('.popup__close');// кнопка закрытия
+const nameInput = popupEditProfile.querySelector('.popup__text_type_name'); // поле ввода имя
+const jobInput = popupEditProfile.querySelector('.popup__text_type_job'); // поле ввода работы
 
+// 2 // Переменные для добавления карточек
+const popupAddElement = document.querySelector('.popup_type_add');
+const addElementButton = document.querySelector('.profile__button-add'); //кнопка открытия для карточки
+const formElementAdd = document.querySelector('#form_type_add');
+//button and input
+const popupCloseAddElement = popupAddElement.querySelector('.popup__close_type_add');
+const addImageInput = popupAddElement.querySelector('.popup__text_type_link');
+const addTitleInput = popupAddElement.querySelector('.popup__text_type_title');
 
 const initialCards = [
   {
