@@ -2,7 +2,7 @@
 let page = document.querySelector('.page');
 let content = document.querySelector('.content');
 let popup = document.querySelector('.popup'); //модальное окно 
-const popupEditProfile = document.querySelector('.popup_type_edit');
+const popupEditProfile = document.querySelector('.popup_type_edit');// это попап профиля
 let popupEdit = document.querySelector('#form');// это для профиля
 let profileButtonEdit = document.querySelector('.profile__button-edit');//кнопка открытия
 let popupClose = document.querySelector('.popup__close');// кнопка закрытия
@@ -14,9 +14,11 @@ let jobInput = document.querySelector('.popup__text_type_job'); // поле вв
 
 //5
 const addElementButton = document.querySelector('.profile__button-add'); //кнопка открытия для карточки
-const closeElementButton = document.querySelector('.profile__button-add');
+const closeElementButton = document.querySelector('.popup__close_type_add');// крестик
+const submitButtonElement = document.querySelector('.popup__submit-btn_type_add');
 const popupElement = document.querySelector('.popup_type_add');
 const formElementAdd = document.querySelector('#form_type_add');
+
 const elementArea = document.querySelector('.elements'); // контейнер, куда добавляем элементы
 let elementImage = document.querySelector('.element__image');
 let elementTitle = document.querySelector('.element__title');
