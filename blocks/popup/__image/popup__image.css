@@ -1,4 +1,9 @@
 .popup__image{
-    margin: 0 auto;
-    position: relative;
+    display: block;
+    position: fixed;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
 }
