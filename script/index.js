@@ -24,8 +24,8 @@ const addImageLink = popupAddElement.querySelector('.popup__text_type_link');
 const popupFullView = document.querySelector('.popup_type_image');
 //button
 const popupCloseFullImageView = popupFullView.querySelector('.popup__close_type_image');
-const popupImageCard = popupFullView.querySelector('.popup__image_card');
-const popupImageName = popupFullView.querySelector('.popup__image_name');
+const popupImageCard = popupFullView.querySelector('.popup__image-card');
+const popupImageName = popupFullView.querySelector('.popup__image-name');
 
 const initialCards = [
   {
