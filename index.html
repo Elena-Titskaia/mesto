@@ -17,9 +17,9 @@
         <div class="profile__info">
           <h1 class="profile__info-name">Жак-Ив Кусто</h1>
           <p class="profile__info-job">Исследователь океана</p>
-          <button type="button"  class="profile__button-edit"></button>
+          <button type="button" aria-label="Редактирование профиля" class="profile__button-edit"></button>
         </div>
-        <button type="button"  class="profile__button-add"></button>
+        <button type="button" aria-label="Добавление нового изображения" class="profile__button-add"></button>
       </section> 
       <section class="elements">
         <template id="element-template">
@@ -29,100 +29,20 @@
               <img class="element__image" src="#" alt="#" />
               <div class="element__data">
                 <h2 class="element__title"></h2>
-                <button type="button" class="element__like"></button>
+                <button type="button" aria-label="Нравится" class="element__like"></button>
               </div>
             </div>
           </article>
         </template>
       </section>
-      <!--
-        <div class="elements__grid">
-          <article class="element">
-            <div class="element__info">
-              <img
-                class="element__image"
-                src="././images/1.jpg"
-                alt="озеро Байкал с высоты птьичего полета"
-              />
-              <div class="element__data">
-                <h2 class="element__title">Озеро Байкал</h2>
-                <button type="button" class="element__like"></button>
-              </div>
-            </div>
-          </article>
-          <article class="element">
-            <div class="element__info">
-              <img
-                class="element__image"
-                src="././images/2.jpg"
-                alt="Вулкан Этна с высоты птьичего полета"
-              />
-              <div class="element__data">
-                <h2 class="element__title">Вулкан Этна</h2>
-                <button type="button" class="element__like"></button>
-              </div>
-            </div>
-          </article>
-          <article class="element">
-            <div class="element__info">
-              <img
-                class="element__image"
-                src="././images/6.jpg"
-                alt="Поле с высоты птьичего полета с лошадьми"
-              />
-              <div class="element__data">
-                <h2 class="element__title">Поле</h2>
-                <button type="button" class="element__like"></button>
-              </div>
-            </div>
-          </article>
-          <article class="element">
-            <div class="element__info">
-              <img
-                class="element__image"
-                src="././images/4.jpg"
-                alt="Андреевская пустынь Соловецкого монастыря"
-              />
-              <div class="element__data">
-                <h2 class="element__title">Соловецкие острова</h2>
-                <button type="button" class="element__like"></button>
-              </div>
-            </div>
-          </article>
-          <article class="element">
-            <div class="element__info">
-              <img
-                class="element__image"
-                src="././images/5.jpg"
-                alt="Холм Божий дар Ставропольский край"
-              />
-              <div class="element__data">
-                <h2 class="element__title">Холм</h2>
-                <button type="button" class="element__like"></button>
-              </div>
-            </div>
-          </article>
-          <article class="element">
-            <div class="element__info">
-              <img
-                class="element__image"
-                src="././images/3.jpg"
-                alt="Водобашня в поселке Таёжный"
-              />
-              <div class="element__data">
-                <h2 class="element__title">Красноярский край</h2>
-                <button type="button" class="element__like"></button>
-              </div>
-            </div>
-          </article>
-        </div>
-           -->
     </main>
     <section class="popup popup_type_edit">
       <div class="popup__container">
         <h2 class="popup__title">Редактировать профиль</h2>
         <form class="popup__form" id="form" name="form-profile">
           <input
+            required
+            placeholder="Имя"
             id="name"
             type="text"
             value="Лена Тицкая"
@@ -130,6 +50,8 @@
             class="popup__text popup__text_type_name"
           />
           <input
+            required
+            placeholder="О себе"
             id="job"
             type="text"
             value="Космонавт"
@@ -138,7 +60,7 @@
           />
           <button type="submit" class="popup__submit-btn">Сохранить</button>
         </form>
-        <button type="button" class="popup__close popup__close_type_edit"></button>
+        <button type="button" aria-label="Закрыть" class="popup__close popup__close_type_edit"></button>
       </div>
     </section>
     <section class="popup popup_type_add">
@@ -146,6 +68,7 @@
         <h2 class="popup__title">Новое место</h2>
         <form class="popup__form" id="form_type_add" name="form-card">
           <input
+            required
             id="title"
             type="text"
             placeholder="Название"
@@ -153,6 +76,7 @@
             class="popup__text popup__text_type_title"
           />
           <input
+            required
             id="link"
             type="url"
             placeholder="Ссылка на картинку"
@@ -161,12 +85,12 @@
           />
           <button type="submit" class="popup__submit-btn popup__submit-btn_type_add">Создать</button>
         </form>
-        <button type="button" class="popup__close popup__close_type_add"></button>
+        <button type="button" aria-label="Закрыть" class="popup__close popup__close_type_add"></button>
       </div>
     </section>
     <section class="popup popup_type_image">
       <div class="popup__image">
-        <button type="button" class="popup__close popup__close_type_image"></button>
+        <button type="button" aria-label="Закрыть" class="popup__close popup__close_type_image"></button>
         <img class="popup__image-card" src="#" alt="#">
         <p class="popup__image-name"></p>
     </div>

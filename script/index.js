@@ -1,4 +1,4 @@
-
+// Павел, добрый день! Спасибо за комментарии для улучшения кода, я их сделаю к 6 практической) хорошего дня
 // 1 Переменные для профиля 
 const popupEditProfile = document.querySelector('.popup_type_edit');
 const profileButtonEdit = document.querySelector('.profile__button-edit');
@@ -11,7 +11,7 @@ const nameInput = popupEditProfile.querySelector('.popup__text_type_name');
 const jobInput = popupEditProfile.querySelector('.popup__text_type_job'); 
 
 // 2  Переменные для добавления карточек
-const elementArea = document.querySelector('.elements'); 
+const elementsArea = document.querySelector('.elements'); 
 const popupAddElement = document.querySelector('.popup_type_add'); //!
 const addElementButton = document.querySelector('.profile__button-add'); //!
 const formElementAdd = document.querySelector('#form_type_add');//!
@@ -55,7 +55,7 @@ const initialCards = [
 ]; 
 
 initialCards.forEach(object => {
-  elementArea.append(createElement(object.name, object.link))
+  elementsArea.append(createElement(object.name, object.link))
 });
 
 function createElement (title, link){
@@ -64,75 +64,77 @@ function createElement (title, link){
     const elementImage = element.querySelector('.element__image');
     const elementTitle = element.querySelector('.element__title');
     elementImage.src = link;
+    elementImage.alt = title;
     elementTitle.textContent = title;
 
   return element;
 }
 // all popups open/close
-function showpopup(popupElement){ 
+function showPopup(popupElement){ 
   popupElement.classList.add('popup_opened'); 
 } 
-function hidepopup(popupElement){
+function hidePopup(popupElement){
   popupElement.classList.remove('popup_opened'); 
 }
 // all popups open/close
 
 
 function showImageFullViewPopup (){ 
-  showpopup(popupFullView); 
+  showPopup(popupFullView); 
 } 
 function hideImageFullViewPopup (){ 
-  hidepopup(popupFullView); 
+  hidePopup(popupFullView); 
 } 
 
 //profile
 function showEditProfilePopup (){ 
-  showpopup(popupEditProfile); 
+  showPopup(popupEditProfile); 
 } 
 
 function hideEditProfilePopup (){
-  hidepopup(popupEditProfile)
+  hidePopup(popupEditProfile)
 }
-profileButtonEdit.addEventListener('click', showEditProfilePopup)
+
 addElementButton.addEventListener('click', showEditElementPopup)
 
 profileButtonEdit.addEventListener('click', () => {
   nameInput.value = profileInfoName.textContent; 
   jobInput.value = profileInfoJob.textContent;
-  showpopup (popupEditProfile);
+  showPopup (popupEditProfile);
 });
 
-function saveChangeAttributeValue (event){ 
+function saveProfileData (event){ 
   event.preventDefault()   
   profileInfoName.textContent = nameInput.value; 
   profileInfoJob.textContent = jobInput.value; 
-  hidepopup(popupEditProfile); 
+  hidePopup(popupEditProfile); 
 } 
-form.addEventListener('submit', saveChangeAttributeValue); 
+ 
 ////profile
 
 ///add card
 function showEditElementPopup (){ 
-  showpopup(popupAddElement); 
+  showPopup(popupAddElement); 
 } 
 function hideEditElementPopup (){ 
-  hidepopup(popupAddElement); 
+  hidePopup(popupAddElement); 
 } 
 popupAddElement.addEventListener('click', showEditProfilePopup)
 popupAddElement.addEventListener('click', hideEditProfilePopup)
 
 function addNewElement (event) {
   event.preventDefault()
-  elementArea.prepend(createElement(addImageTitle.value, addImageLink.value))
+  elementsArea.prepend(createElement(addImageTitle.value, addImageLink.value))
   addImageTitle.value = '';
   addImageLink.value = '';
-  hidepopup(popupAddElement)
+  hidePopup(popupAddElement)
 }
 // открываем картинку для просмотра
 function openFullViewImage (card){
   const imageSrc = card.querySelector('.element__image').getAttribute('src')
   const name = card.querySelector('.element__title').textContent
   popupImageCard.setAttribute('src', imageSrc)
+  popupImageCard.setAttribute('alt', name)
   popupImageName.textContent = name
   showImageFullViewPopup ();
 }
@@ -145,11 +147,11 @@ popupCloseFullImageView.addEventListener('click', hideImageFullViewPopup)
 function removeElement(event) {
   event.target.closest('.element').remove();
 }
-function selectLike(event){
+function clickLike(event){
   event.target.classList.toggle('element__like_active');
 }
 
-elementArea.addEventListener('click', function(event){
+elementsArea.addEventListener('click', function(event){
   if(event.target.classList.contains('element__image')){
     const card = event.target.closest('.element'); 
     openFullViewImage (card)
@@ -160,27 +162,10 @@ elementArea.addEventListener('click', function(event){
   }
 
   if(event.target.classList.contains('element__like')){
-    selectLike(event)
+    clickLike(event)
   }
 });
 // удаление и лайк
 
-
-popupEditProfile.addEventListener('submit', saveChangeAttributeValue);
+popupEditProfile.addEventListener('submit', saveProfileData);
 formElementAdd.addEventListener("submit", addNewElement);
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
