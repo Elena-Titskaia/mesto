@@ -39,7 +39,7 @@
     <section class="popup popup_type_edit">
       <div class="popup__container">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form" id="form" name="form-profile">
+        <form class="popup__form" id="form" name="form-profile" novalidate>
           <input
             required
             placeholder="Имя"
@@ -47,8 +47,11 @@
             type="text"
             value="Лена Тицкая"
             name="username"
-            class="popup__text popup__text_type_name"
+            class="popup__text popup__text_error popup__text_type_name"
+            minlength="2"
+            maxlength="40"
           />
+          <span id='name-error' class="popup__error name-error"></span>
           <input
             required
             placeholder="О себе"
@@ -56,8 +59,11 @@
             type="text"
             value="Космонавт"
             name="profession"
-            class="popup__text popup__text_type_job"
+            class="popup__text popup__text_error popup__text_type_job"
+            minlength="2"
+            maxlength="200"
           />
+          <span id='job-error' class="popup__error job-error"></span>
           <button type="submit" class="popup__submit-btn">Сохранить</button>
         </form>
         <button type="button" aria-label="Закрыть" class="popup__close popup__close_type_edit"></button>
@@ -66,23 +72,27 @@
     <section class="popup popup_type_add">
       <div class="popup__card">
         <h2 class="popup__title">Новое место</h2>
-        <form class="popup__form" id="form_type_add" name="form-card">
+        <form class="popup__form" id="form_type_add" name="form-card" novalidate>
           <input
             required
-            id="title"
+            id="title" 
             type="text"
             placeholder="Название"
             name="title"
-            class="popup__text popup__text_type_title"
+            class="popup__text popup__text_error popup__text_type_title"
+            minlength="2"
+            maxlength="30"
           />
+          <span id='title-error' class="popup__error title-error"></span>
           <input
             required
             id="link"
             type="url"
             placeholder="Ссылка на картинку"
             name="link"
-            class="popup__text popup__text_type_link"
+            class="popup__text popup__text_error popup__text_type_link"
           />
+          <span id='link-error' class="popup__error link-error"></span>
           <button type="submit" class="popup__submit-btn popup__submit-btn_type_add">Создать</button>
         </form>
         <button type="button" aria-label="Закрыть" class="popup__close popup__close_type_add"></button>
@@ -100,5 +110,6 @@
     </footer>
     <script src="./script/constants.js"></script>
     <script src="./script/index.js"></script>
+    <script src="./script/validate.js"></script>
   </body>
 </html>

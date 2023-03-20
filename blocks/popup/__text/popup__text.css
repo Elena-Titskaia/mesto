@@ -9,6 +9,7 @@
     font-weight: 400;
     color: black;
 }
+
 @media screen and (max-width: 768px) {
     .popup__text {
         padding: 0;
