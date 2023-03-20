@@ -2,8 +2,8 @@
     color:rgba(255, 0, 0, 1);
     font-size: 12px;
     font-weight: 400;
-    line-height: 14,6px;
-    opacity: 0;
-    transition: .3s;
-    width: 100%;
+    line-height: 14.52px;
+    display: block;
+    margin-top: 5px;
+    position: absolute;
 }

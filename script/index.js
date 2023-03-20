@@ -41,16 +41,15 @@ function createElement (title, link){
  
   return element; 
 } 
-// all popups open/close 
+// // all popups open/close 
 function showPopup(popupElement){  
   popupElement.classList.add('popup_opened');  
 }  
 function hidePopup(popupElement){ 
   popupElement.classList.remove('popup_opened');  
 } 
-// all popups open/close 
- 
- 
+// //all popups open/close 
+
 function showImageFullViewPopup (){  
   showPopup(popupFullView);  
 }  

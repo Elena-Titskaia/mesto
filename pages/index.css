@@ -40,3 +40,4 @@
 @import url(../blocks/popup/__error/_active/popup__error_active.css);
 @import url(../blocks/popup/__text/_error/popup__text_error.css);
 @import url(../blocks/popup/__submit-btn/_disabled/popup__submit-btn_disabled.css);
+@import url(../blocks/popup/__form/_wrapper/popup__form_wrapper.css);
