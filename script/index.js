@@ -44,9 +44,11 @@ function createElement (title, link){
 // // all popups open/close 
 function showPopup(popupElement){  
   popupElement.classList.add('popup_opened');  
+  addOverlayListeners(popupElement);
 }  
 function hidePopup(popupElement){ 
-  popupElement.classList.remove('popup_opened');  
+  popupElement.classList.remove('popup_opened');
+  removeOverlayListeners(popupElement);  
 } 
 // //all popups open/close 
 
@@ -140,3 +142,41 @@ elementsArea.addEventListener('click', function(event){
  
 popupEditProfile.addEventListener('submit', saveProfileData); 
 formElementAdd.addEventListener("submit", addNewElement); 
+
+//добавляет слушатели событий для закрытия всплывающего окна  
+function addOverlayListeners (popupElement){
+    document.addEventListener('keydown', escapeFromPopup)
+    popupElement.addEventListener('mousedown', closeOnOverlayClick)
+}
+// удаления слушателей событий 
+function removeOverlayListeners (popupElement) {
+    popupElement.removeEventListener('mousedown', closeOnOverlayClick)
+    document.removeEventListener('keydown', escapeFromPopup)
+}
+// проверяет клик вне сплывающего окна
+function closeOnOverlayClick(event) {
+  const popup = event.target.closest('.popup_opened');
+  if (!popup) {
+    const openedPopup = document.querySelector('.popup_opened');
+    removeOverlayListeners(openedPopup);
+    openedPopup.classList.remove('popup_opened');
+  }
+}
+
+// проверяет нажатие на клавишу esc
+function escapeFromPopup(event) {
+    if (event.key === 'Escape') {
+      const showPopup = document.querySelector('.popup_opened');
+      removeOverlayListeners(showPopup);
+      hidePopup(showPopup);
+    }
+}
+
+// function closeOnOverlayClick(event) {
+//     const popupElement = event.target.closest('.popup_opened');
+//     if (!popupElement) {
+//       const openedPopup = document.querySelector('.popup_opened');
+//       removeOverlayListeners(openedPopup);
+//       openedPopup.classList.remove('.popup_opened');
+//     }
+// }
