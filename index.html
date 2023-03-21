@@ -40,7 +40,7 @@
       <div class="popup__container">
         <h2 class="popup__title">Редактировать профиль</h2>
         <form class="popup__form" id="form" name="form-profile" novalidate>
-          <div class="popup__form_wrapper">
+          <div class="popup__wrapper">
           <input
             required
             placeholder="Имя"
@@ -54,7 +54,7 @@
           />
           <span id='name-error' class="popup__error name-error"></span>
         </div>
-        <div class="popup__form_wrapper">
+        <div class="popup__wrapper">
           <input
             required
             placeholder="О себе"
@@ -77,7 +77,7 @@
       <div class="popup__card">
         <h2 class="popup__title">Новое место</h2>
         <form class="popup__form" id="form_type_add" name="form-card" novalidate>
-          <div class="popup__form_wrapper">
+          <div class="popup__wrapper">
             <input
             required
             id="title" 
@@ -90,6 +90,7 @@
           />
           <span id='title-error' class="popup__error title-error"></span>
           </div>
+          <div class="popup__wrapper">
           <input
             required
             id="link"
@@ -99,6 +100,7 @@
             class="popup__text  popup__text_type_link"
           />
           <span id='link-error' class="popup__error link-error"></span>
+          </div>
           <button type="submit" class="popup__submit-btn popup__submit-btn_type_add">Создать</button>
         </form>
         <button type="button" aria-label="Закрыть" class="popup__close popup__close_type_add"></button>
