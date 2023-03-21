@@ -1,4 +1,3 @@
-
 const initialCards = [
     {
       name: 'Архыз',
@@ -24,5 +23,14 @@ const initialCards = [
       name: 'Байкал',
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
     },
-  ]; 
+]; 
   
+
+const obj = {
+    formSelector: '.popup__form',// формы
+    inputSelector: '.popup__text',// инпуты
+    submitButtonSelector: '.popup__submit-btn', // кнопки
+    errorClass: 'popup__error_active', // это span
+    inputErrorClass: 'popup__text_error', // это красная черта unput
+    inactiveButtonClass: 'popup__submit-btn_disabled'// button disabled
+};//ключи 

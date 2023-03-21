@@ -1,12 +1,4 @@
-const obj = {
-    formSelector: '.popup__form',// формы
-    inputSelector: '.popup__text',// инпуты
-    submitButtonSelector: '.popup__submit-btn', // кнопки
-    errorClass: 'popup__error_active', // это span
-    inputErrorClass: 'popup__text_error', // это красная черта unput
-    inactiveButtonClass: 'popup__submit-btn_disabled'// button disabled
-};//ключи  
-
+ 
 //проверяет, есть ли невалидный элемент в переданном списке элементов ввода
 function hasInvalidInput (inputList) {
     return inputList.some((input) => {
@@ -35,6 +27,13 @@ const setEventListeners = (form) => {
       });
     });
 };
+
+//очистка форм при открытии 
+function resetPopupError (popupElement, obj) {
+    const inputList = Array.from(popupElement.querySelectorAll(obj.inputSelector));
+    inputList.forEach(input => hideInputError(input))
+    toggleButtonState(inputList, popupElement)
+}
 
 //проверяет валидность элемента ввода и вызывает showInputError или hideInputError в зависимости от результата проверки
 const checkInputValidity = (input) => {
@@ -70,64 +69,3 @@ function enableValidation (obj) {
 }; 
 
 enableValidation(obj);
-
-
-// const addOverlayListener = () => {
-//     document.addEventListener('keydown', (event) => {
-//       if (event.key === 'Escape') {
-//         const activePopups = document.querySelectorAll('.popup_opened');
-  
-//         if (activePopups.length){
-//           activePopups.forEach((activePopup) => {
-//             activePopup.classList.remove('popup_opened');
-//           });
-//         }
-//       }
-//     });
-//   };
-
-  // const addOverlayListener = () => {
-  //   document.addEventListener('keydown', (event) => {
-  //     if (event.key === 'Escape') {
-  //       const activePopups = document.querySelectorAll('.popup_opened');
-  //       console.log(activePopups)
-  //       if (activePopups.length){
-  //         activePopups.forEach((activePopup) => {
-  //           activePopup.classList.remove('popup_opened');
-  //         });
-  //       }
-  //     }
-  //   });
-  // };
-  
-
-// const inputList = form.querySelectorAll(inputSelector)//!
-//         inputList.forEach(input => {
-//             input.addEventListener('input', evt => {
-//                 //проверяем данные введенные 
-//                if (input.validity.valid){
-//                 //скрыть ошибку 
-//                }else{
-//                 //показать ошибку
-//                 const inputName = input.getAttribute('name')
-//                 const errorPlace = document.getElementById(`${inputName}-error`)
-//                 errorPlace.textContent = input.validationMessage
-//                 errorPlace.classList.add(errorClass)
-//                }
-//             })
-//         })
-
-// const showInputError = (formElement, inputElement, errorMessage) => {
-//     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-//     console.log(errorElement)
-//     inputElement.classList.add('popup__error');
-//     errorElement.textContent = errorMessage;
-//     errorElement.classList.add('popup__error_active');
-//   };
-  
-// const hideInputError = (formElement, inputElement) => {
-//     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-//     inputElement.classList.remove('popup__error');
-//     errorElement.classList.remove('popup__error_active');
-//     errorElement.textContent = '';
-//   };

@@ -31,8 +31,7 @@ initialCards.forEach(object => {
 }); 
  
 function createElement (title, link){ 
-  const element = document.querySelector('#element-template').cloneNode(true).content; 
-  const newElement = element.cloneNode(true); 
+  const element = document.querySelector('#element-template').cloneNode(true).content;  
     const elementImage = element.querySelector('.element__image'); 
     const elementTitle = element.querySelector('.element__title'); 
     elementImage.src = link; 
@@ -42,14 +41,14 @@ function createElement (title, link){
   return element; 
 } 
 // // all popups open/close 
-function showPopup(popupElement){  
-  popupElement.classList.add('popup_opened');  
-  addOverlayListeners(popupElement);
-}  
-function hidePopup(popupElement){ 
-  popupElement.classList.remove('popup_opened');
-  removeOverlayListeners(popupElement);  
-} 
+// function showPopup(popupElement){  
+//   popupElement.classList.add('popup_opened');  
+//   //addOverlayListeners(popupElement);
+// }  
+// function hidePopup(popupElement){ 
+//   popupElement.classList.remove('popup_opened');
+//   //removeOverlayListeners(popupElement);  
+// } 
 // //all popups open/close 
 
 function showImageFullViewPopup (){  
@@ -61,7 +60,7 @@ function hideImageFullViewPopup (){
  
 //profile 
 function showEditProfilePopup (){  
-  showPopup(popupEditProfile);  
+  showPopup(popupEditProfile); 
 }  
  
 function hideEditProfilePopup (){ 
@@ -74,6 +73,7 @@ profileButtonEdit.addEventListener('click', () => {
   nameInput.value = profileInfoName.textContent;  
   jobInput.value = profileInfoJob.textContent; 
   showPopup (popupEditProfile); 
+  resetPopupError (popupEditProfile, obj);
 }); 
  
 function saveProfileData (event){  
@@ -87,7 +87,8 @@ function saveProfileData (event){
  
 ///add card 
 function showEditElementPopup (){  
-  showPopup(popupAddElement);  
+  showPopup(popupAddElement);
+  resetPopupError(popupAddElement, obj);  
 }  
 function hideEditElementPopup (){  
   hidePopup(popupAddElement);  
@@ -143,40 +144,36 @@ elementsArea.addEventListener('click', function(event){
 popupEditProfile.addEventListener('submit', saveProfileData); 
 formElementAdd.addEventListener("submit", addNewElement); 
 
-//добавляет слушатели событий для закрытия всплывающего окна  
-function addOverlayListeners (popupElement){
-    document.addEventListener('keydown', escapeFromPopup)
-    popupElement.addEventListener('mousedown', closeOnOverlayClick)
-}
-// удаления слушателей событий 
-function removeOverlayListeners (popupElement) {
-    popupElement.removeEventListener('mousedown', closeOnOverlayClick)
-    document.removeEventListener('keydown', escapeFromPopup)
-}
-// проверяет клик вне сплывающего окна
-function closeOnOverlayClick(event) {
-  const popup = event.target.closest('.popup_opened');
-  if (!popup) {
-    const openedPopup = document.querySelector('.popup_opened');
-    removeOverlayListeners(openedPopup);
-    openedPopup.classList.remove('popup_opened');
+//вариант 2 
+//если клик был по затемненной области
+const onOverlayClick = (event) => {
+  if (event.target === event.currentTarget) { 
+    const popupElement = document.querySelector('.popup_opened')  
+    hidePopup(popupElement)
   }
 }
-
-// проверяет нажатие на клавишу esc
-function escapeFromPopup(event) {
-    if (event.key === 'Escape') {
-      const showPopup = document.querySelector('.popup_opened');
-      removeOverlayListeners(showPopup);
-      hidePopup(showPopup);
-    }
+//если была нажата клавиша "Esc"
+const onEscapePress = (event) => {
+  if (event.key === "Escape") { 
+    const popupElement = document.querySelector('.popup_opened') 
+    hidePopup(popupElement)
+  }
+  console.log(popupElement)
 }
 
-// function closeOnOverlayClick(event) {
-//     const popupElement = event.target.closest('.popup_opened');
-//     if (!popupElement) {
-//       const openedPopup = document.querySelector('.popup_opened');
-//       removeOverlayListeners(openedPopup);
-//       openedPopup.classList.remove('.popup_opened');
-//     }
-// }
+const showPopup = (popupElement) => {
+  popupElement.classList.add("popup_opened")
+
+  popupElement.addEventListener("click", onOverlayClick)
+
+  document.addEventListener("keydown", onEscapePress)
+  console.log(popupElement)
+}
+
+const hidePopup = (popupElement) => {
+  popupElement.classList.remove("popup_opened")
+
+  popupElement.removeEventListener("click", onOverlayClick)
+
+  document.removeEventListener("keydown", onEscapePress)
+}
