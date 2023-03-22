@@ -26,7 +26,7 @@ const initialCards = [
 ]; 
   
 
-const obj = {
+const settings = {
     formSelector: '.popup__form',// формы
     inputSelector: '.popup__text',// инпуты
     submitButtonSelector: '.popup__submit-btn', // кнопки

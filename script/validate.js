@@ -8,18 +8,18 @@ function hasInvalidInput (inputList) {
 
 // включает или отключает кнопку отправки формы
 function toggleButtonState (inputList, form) {
-    const buttonElement = form.querySelector(obj.submitButtonSelector);
+    const buttonElement = form.querySelector(settings.submitButtonSelector);
     if (hasInvalidInput(inputList)) {
-        buttonElement.classList.add(obj.inactiveButtonClass);
+        buttonElement.classList.add(settings.inactiveButtonClass);
        
     } else {
-        buttonElement.classList.remove(obj.inactiveButtonClass);
+        buttonElement.classList.remove(settings.inactiveButtonClass);
     }
 };
 
 //добавляет обработчики событий на элементы ввода
 const setEventListeners = (form) => {
-    const inputList = Array.from(form.querySelectorAll(obj.inputSelector));
+    const inputList = Array.from(form.querySelectorAll(settings.inputSelector));
     inputList.forEach((input) => {
       input.addEventListener('input', function () {
         checkInputValidity(input);
@@ -29,8 +29,8 @@ const setEventListeners = (form) => {
 };
 
 //очистка форм при открытии 
-function resetPopupError (popupElement, obj) {
-    const inputList = Array.from(popupElement.querySelectorAll(obj.inputSelector));
+function resetPopupError (popupElement, settings) {
+    const inputList = Array.from(popupElement.querySelectorAll(settings.inputSelector));
     inputList.forEach(input => hideInputError(input))
     toggleButtonState(inputList, popupElement)
 }
@@ -47,25 +47,25 @@ const checkInputValidity = (input) => {
 //трансляция ошибки
 const showInputError = (input, errorMessage) => {
     const errorElement = document.getElementById(`${input.id}-error`);//formElement.querySelector(`.${input.name}-error`);//?
-    input.classList.add(obj.inputErrorClass);// это инпут red
+    input.classList.add(settings.inputErrorClass);// это инпут red
     errorElement.textContent = errorMessage;
-    errorElement.classList.add(obj.errorClass);//это спан
+    errorElement.classList.add(settings.errorClass);//это спан
 };
 
 //скрываем ошибку
 const hideInputError = (input) => {
     const errorElement = document.getElementById(`${input.id}-error`);
-    input.classList.remove(obj.inputErrorClass);//red
-    errorElement.classList.remove(obj.errorClass);
+    input.classList.remove(settings.inputErrorClass);//red
+    errorElement.classList.remove(settings.errorClass);
     errorElement.textContent = '';
 };
 
 //функция предотвращает отправку формы и вызывает функцию setEventListeners
-function enableValidation (obj) {
-    const formList = Array.from(document.querySelectorAll(obj.formSelector));
+function enableValidation (settings) {
+    const formList = Array.from(document.querySelectorAll(settings.formSelector));
     formList.forEach((form) => {
         setEventListeners (form)
     });
 }; 
 
-enableValidation(obj);
+enableValidation(settings);
