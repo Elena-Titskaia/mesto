@@ -7,23 +7,24 @@ function hasInvalidInput (inputList) {
 };
 
 // включает или отключает кнопку отправки формы
-function toggleButtonState (inputList, form) {
+function toggleButtonState (inputList, form, settings) {
     const buttonElement = form.querySelector(settings.submitButtonSelector);
     if (hasInvalidInput(inputList)) {
         buttonElement.classList.add(settings.inactiveButtonClass);
-       
+        buttonElement.disabled = 'disabled';
     } else {
         buttonElement.classList.remove(settings.inactiveButtonClass);
+        buttonElement.disabled = '';
     }
 };
 
 //добавляет обработчики событий на элементы ввода
-const setEventListeners = (form) => {
+const setEventListeners = (form, settings) => {
     const inputList = Array.from(form.querySelectorAll(settings.inputSelector));
     inputList.forEach((input) => {
       input.addEventListener('input', function () {
-        checkInputValidity(input);
-        toggleButtonState(inputList, form);
+        checkInputValidity(input, settings);
+        toggleButtonState(inputList, form, settings);
       });
     });
 };
@@ -31,29 +32,29 @@ const setEventListeners = (form) => {
 //очистка форм при открытии 
 function resetPopupError (popupElement, settings) {
     const inputList = Array.from(popupElement.querySelectorAll(settings.inputSelector));
-    inputList.forEach(input => hideInputError(input))
-    toggleButtonState(inputList, popupElement)
+    inputList.forEach(input => hideInputError(input, settings))
+    toggleButtonState(inputList, popupElement, settings)
 }
 
 //проверяет валидность элемента ввода и вызывает showInputError или hideInputError в зависимости от результата проверки
-const checkInputValidity = (input) => {
+const checkInputValidity = (input, settings) => {
     if (!input.validity.valid) {
-      showInputError(input, input.validationMessage);
+      showInputError(input, input.validationMessage, settings);
     } else {
-      hideInputError(input);
+      hideInputError(input, settings);
     }
 };
 
 //трансляция ошибки
-const showInputError = (input, errorMessage) => {
-    const errorElement = document.getElementById(`${input.id}-error`);//formElement.querySelector(`.${input.name}-error`);//?
+const showInputError = (input, errorMessage, settings) => {
+    const errorElement = document.getElementById(`${input.id}-error`);
     input.classList.add(settings.inputErrorClass);// это инпут red
     errorElement.textContent = errorMessage;
     errorElement.classList.add(settings.errorClass);//это спан
 };
 
 //скрываем ошибку
-const hideInputError = (input) => {
+const hideInputError = (input, settings) => {
     const errorElement = document.getElementById(`${input.id}-error`);
     input.classList.remove(settings.inputErrorClass);//red
     errorElement.classList.remove(settings.errorClass);
@@ -64,7 +65,7 @@ const hideInputError = (input) => {
 function enableValidation (settings) {
     const formList = Array.from(document.querySelectorAll(settings.formSelector));
     formList.forEach((form) => {
-        setEventListeners (form)
+        setEventListeners (form, settings)
     });
 }; 
 
