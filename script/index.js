@@ -1,3 +1,4 @@
+//Сергей, добрый вечер! спасибо за комментарии было не легко их править)
 // 1 Переменные для профиля  
 const popupEditProfile = document.querySelector('.popup_type_edit'); 
 const profileButtonEdit = document.querySelector('.profile__button-edit'); 
@@ -54,7 +55,7 @@ function createElement (title, link){
   });
 
   elementLike.addEventListener('click', function(event) {
-    clickLike(element);
+    clickLike(elementLike);
   });
 
   return element;
@@ -74,8 +75,8 @@ function removeElement(element) {
   element.remove();
 }
 
-function clickLike(element){
-  element.querySelector(elementLikeSelector).classList.toggle('element__like_active');
+function clickLike(elementLike){
+  elementLike.classList.toggle('element__like_active');
 }
 
 popupEditProfile.addEventListener('submit', saveProfileData); 
@@ -127,21 +128,29 @@ function showImageFullViewPopup (){
 // popupCloseFullImageView.addEventListener('click', hideImageFullViewPopup) 
 
 function onOverlayClickClose (event) {
-  hidePopup(event.target);
-};
+  if (event.target === event.currentTarget){
+    hidePopup(event.target);
+  }
+};// исправила 
 
 function onEscapePressClose (event) {
-  if (event.key === 'Escape'&& document.querySelector('.popup_opened')) {
-    hidePopup(popupElement);
-  }
+  if (event.key === "Escape") {  
+    const popupElement = document.querySelector('.popup_opened')  
+    hidePopup(popupElement) 
+  } 
 };
 
 function showPopup (popupElement) {
   popupElement.classList.add('popup_opened')
+
+  document.addEventListener("keydown", onEscapePress)
 }
 
 function hidePopup (popup) { 
   popup.classList.remove("popup_opened") 
+  popup.removeEventListener("click", onOverlayClickClose) 
+ 
+  document.removeEventListener("keydown", onEscapePressClose)
 } 
 
 const popupList = document.querySelectorAll('.popup');
@@ -157,4 +166,3 @@ buttonClose.forEach(button => button.addEventListener('click',() => {
   hidePopup(popupElement)
 }));
 
-window.addEventListener('keydown', onEscapePressClose)
