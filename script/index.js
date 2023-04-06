@@ -1,4 +1,7 @@
-//Сергей, добрый вечер! спасибо за комментарии было не легко их править)
+import Card from './Card'
+Card ();
+import {initialCards} from './constants'
+
 // 1 Переменные для профиля  
 const popupEditProfile = document.querySelector('.popup_type_edit'); 
 const profileButtonEdit = document.querySelector('.profile__button-edit'); 
@@ -15,7 +18,7 @@ const elementsArea = document.querySelector('.elements');
 const popupAddElement = document.querySelector('.popup_type_add'); //! 
 const ButtonAddElement = document.querySelector('.profile__button-add'); //! 
 const formElementAdd = document.querySelector('#form_type_add');//! 
-const cardTemplate = document.querySelector('#element-template').content.querySelector('.element');//NEW
+//const cardTemplate = document.querySelector('#element-template').content.querySelector('.element');//NEW
 //button and input 
 const popupCloseAddElement = popupAddElement.querySelector('.popup__close_type_add'); 
 const titleAddImage = popupAddElement.querySelector('.popup__text_type_title'); 
@@ -43,7 +46,7 @@ function createElement (title, link){
   const elementLike = element.querySelector(elementLikeSelector);
 
   elementImage.src = link;
-  elementImage.alt = title;
+  elementImage.alt = title;// name link
   elementTitle.textContent = title;
 
   elementImage.addEventListener('click', function(event) {
