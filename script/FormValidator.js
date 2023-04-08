@@ -1,5 +1,3 @@
-import { initialCards as cardList } from "./constants.js";
-console.log(cardList);
 
 export default class FormValidator {
     constructor (settings, formElement){
@@ -60,7 +58,7 @@ export default class FormValidator {
         });
     };
 
-    _resetPopupError () {
+    resetPopupError () {
         this._inputList.forEach(inputElement => this._hideInputError(inputElement))
         this._toggleButtonState()
     }

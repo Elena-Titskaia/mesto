@@ -5,7 +5,7 @@ export default class Card {
       this._link = data.link;
     
       this._templateSelector = templateSelector;
-      this._handleCardClick = () => handleCardClick({name:this._name, link:this._link});
+      this._handleCardClick = handleCardClick;
     }
   
     _getTemplate() {
@@ -23,7 +23,6 @@ export default class Card {
         this._cardImage = this._element.querySelector ('.element__image');
         this._cardTrashButton = this._element.querySelector ('.element__trash');
         this._cardLikeButton = this._element.querySelector ('.element__like');
-    console.log(this._cardImage)
         this._cardTitle.textContent = this._name;
         this._cardImage.src = this._link;
         this._cardImage.alt = this._name;
@@ -33,7 +32,7 @@ export default class Card {
       }
   
     _setEventListeners() {
-        this._cardImage.addEventListener('click', this._handleCardClick)
+        this._cardImage.addEventListener('click', () => this._handleCardClick({name:this._name, link:this._link}))
         this._cardTrashButton.addEventListener('click', () =>{
             this._handleDeleteClick()
         });
@@ -48,6 +47,7 @@ export default class Card {
   
     _handleDeleteClick() {
         this._element.remove();
+        this._element = null;
     }
 }
  

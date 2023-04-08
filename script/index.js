@@ -2,6 +2,7 @@ import Card from './Card.js'
 import {initialCards as cardList} from './constants.js'
 import FormValidator from './FormValidator.js';
 import { settings } from './constants.js';
+//Сергей, добрый день! Спасибо за супер оперативную проверку работы и комментарии
 // 1 Переменные для профиля  
 const popupEditProfile = document.querySelector('.popup_type_edit'); 
 const profileButtonEdit = document.querySelector('.profile__button-edit'); 
@@ -18,7 +19,7 @@ const jobInput = popupEditProfile.querySelector('.popup__text_type_job');
 // 2  Переменные для добавления карточек 
 const elementsArea = document.querySelector('.elements');  
 const popupAddElement = document.querySelector('.popup_type_add'); //! 
-const ButtonAddElement = document.querySelector('.profile__button-add'); //! 
+const buttonAddElement = document.querySelector('.profile__button-add'); //! 
 //button and input 
 const titleAddImage = popupAddElement.querySelector('.popup__text_type_title'); 
 const linkAddImage = popupAddElement.querySelector('.popup__text_type_link'); 
@@ -38,9 +39,8 @@ formElementAdd.addEventListener('submit', addNewElement);
 
 function addNewElement (event) { 
   event.preventDefault() 
-  elementsArea.prepend(createElement(titleAddImage.value, linkAddImage.value)) 
-  titleAddImage.value = ''; 
-  linkAddImage.value = ''; 
+  const card = {name: titleAddImage.value, link: linkAddImage.value};
+  elementsArea.prepend(createElement(card)); 
   hidePopup(popupAddElement) 
 } 
 
@@ -48,7 +48,7 @@ cardList.forEach(object => {
   elementsArea.append(createElement(object)) 
 }); 
 
-ButtonAddElement.addEventListener('click', showEditElementPopup) 
+buttonAddElement.addEventListener('click', showEditElementPopup) 
 
 function saveProfileData (event){  
   event.preventDefault()    
@@ -59,8 +59,8 @@ function saveProfileData (event){
 
 function showEditElementPopup (){  
   showPopup(popupAddElement); 
-  cardAddValidator._resetPopupError() 
   formElementAdd.reset()
+  cardAddValidator.resetPopupError() 
 }  
 profileButtonEdit.addEventListener('click', showEditProfilePopup)
 
@@ -68,7 +68,7 @@ function showEditProfilePopup (){
   showPopup(popupEditProfile); 
   nameInput.value = profileInfoName.textContent;  
   jobInput.value = profileInfoJob.textContent; 
-  profileValidator._resetPopupError() 
+  profileValidator.resetPopupError() 
 }  
 
 function showImageFullViewPopup (card){  
@@ -99,7 +99,6 @@ function showPopup (popupElement) {
 
 function hidePopup (popup) { 
   popup.classList.remove("popup_opened") 
-  popup.removeEventListener("click", onOverlayClickClose) 
  
   document.removeEventListener("keydown", onEscapePressClose)
 } 
