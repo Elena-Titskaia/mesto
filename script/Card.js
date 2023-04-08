@@ -1,22 +1,19 @@
-import {initialCards as cardList} from './constants'
-cardList ();
-class Card {
-    constructor(data, templateSelector) {
-      this._text = data.name;
+
+export default class Card {
+    constructor(data, templateSelector,handleCardClick) {
+      this._name = data.name;
       this._link = data.link;
-
+    
       this._templateSelector = templateSelector;
+      this._handleCardClick = () => handleCardClick({name:this._name, link:this._link});
 
-      this._cardTitle = this._element.querySelector ('.element__title');// this._element
-      this._cardImage = this._element.querySelector ('.element__image');
-      this._cardTrashButton = this._element.querySelector ('.element__trash');
-      this._cardLikeButton = this._element.querySelector ('.element__like');
+      // тут разве нужно подчеркивание
     }
   
     _getTemplate() {
       const cardElement = document
         .querySelector(this._templateSelector)
-        .content.querySelector(".card")
+        .content.querySelector(".element")
         .cloneNode(true);
   
       return cardElement;
@@ -24,43 +21,37 @@ class Card {
 
     generateCard() {
         this._element = this._getTemplate();
-        this._setEventListeners();
-    
-        this._cardTitle.textContent = this._text;//тут херня
-        this._cardImage.src = `url(${this._link})`;// и тут херня
-
-        cardTitle.setAttribute('alt', this._text);
-        cardImage.setAttribute('src', this._link);
+        this._cardTitle = this._element.querySelector ('.element__title');// this._element
+        this._cardImage = this._element.querySelector ('.element__image');
+        this._cardTrashButton = this._element.querySelector ('.element__trash');
+        this._cardLikeButton = this._element.querySelector ('.element__like');
+    console.log(this._cardImage)
+        this._cardTitle.textContent = this._name;
+        this._cardImage.src = this._link;
+        this._cardImage.alt = this._name;
         
+        this._setEventListeners();
         return this._element;
-      }}
+        
+      }
   
     _setEventListeners() {
-        // cardImage.addEvenListener('click', () =>{
-        //     this._handleOpenCardFullView(cardImage)
-        // })
-
-        cardTrashButton.addEvenListener('click', () =>{
-            this._handleDeleteClick(cardTrashButton)
-        })
-        cardLikeButton.addEvenListener('click', () =>{
-            this._handleLikeClick(cardLikeButton)
-        })
+        this._cardImage.addEventListener('click', this._handleCardClick)
+        this._cardTrashButton.addEventListener('click', () =>{
+            this._handleDeleteClick()
+        });
+        this._cardLikeButton.addEventListener('click', () =>{
+            this._handleLikeClick()
+        });
 
     }
-    // _handleOpenCardFullView(cardImage) {
-    // //тут надо указать все из попапа .popup_type_image
-    //     cardImage.
-    // }
-    _handleLikeClick(cardLikeButton) {
-        cardLikeButton.classList.toggle('element__like_active');
+    
+    _handleLikeClick() {
+        this._cardLikeButton.classList.toggle('element__like_active');
     }
   
-    _handleDeleteClick(cardTrashButton) {
-        cardElement.remove();
+    _handleDeleteClick() {
+        this._element.remove();
     }
-  
-   
-
-   
-export { Card };
+}
+ 

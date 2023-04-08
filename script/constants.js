@@ -27,11 +27,13 @@ export const initialCards = [
 ]; 
   
 
-const settings = {
+export const settings = {
     formSelector: '.popup__form',// формы
     inputSelector: '.popup__text',// инпуты
     submitButtonSelector: '.popup__submit-btn', // кнопки
     errorClass: 'popup__error_active', // это span
     inputErrorClass: 'popup__text_error', // это красная черта unput
-    inactiveButtonClass: 'popup__submit-btn_disabled'// button disabled
+    inactiveButtonClass: 'popup__submit-btn_disabled',// button disabled
+
 };//ключи 
+
