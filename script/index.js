@@ -1,11 +1,7 @@
 import Card from './Card.js'
-
 import {initialCards as cardList} from './constants.js'
-
 import FormValidator from './FormValidator.js';
-
 import { settings } from './constants.js';
-
 // 1 Переменные для профиля  
 const popupEditProfile = document.querySelector('.popup_type_edit'); 
 const profileButtonEdit = document.querySelector('.profile__button-edit'); 
@@ -19,16 +15,13 @@ const profileInfoJob = document.querySelector('.profile__info-job');
 //button and input 
 const nameInput = popupEditProfile.querySelector('.popup__text_type_name');  
 const jobInput = popupEditProfile.querySelector('.popup__text_type_job');  
- 
 // 2  Переменные для добавления карточек 
 const elementsArea = document.querySelector('.elements');  
 const popupAddElement = document.querySelector('.popup_type_add'); //! 
 const ButtonAddElement = document.querySelector('.profile__button-add'); //! 
-
 //button and input 
 const titleAddImage = popupAddElement.querySelector('.popup__text_type_title'); 
 const linkAddImage = popupAddElement.querySelector('.popup__text_type_link'); 
- 
 // 3  Переменные для открытия карточки  
 const popupFullView = document.querySelector('.popup_type_image'); 
 //button 

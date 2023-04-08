@@ -6,8 +6,6 @@ export default class Card {
     
       this._templateSelector = templateSelector;
       this._handleCardClick = () => handleCardClick({name:this._name, link:this._link});
-
-      // тут разве нужно подчеркивание
     }
   
     _getTemplate() {
@@ -21,7 +19,7 @@ export default class Card {
 
     generateCard() {
         this._element = this._getTemplate();
-        this._cardTitle = this._element.querySelector ('.element__title');// this._element
+        this._cardTitle = this._element.querySelector ('.element__title');
         this._cardImage = this._element.querySelector ('.element__image');
         this._cardTrashButton = this._element.querySelector ('.element__trash');
         this._cardLikeButton = this._element.querySelector ('.element__like');
@@ -31,8 +29,7 @@ export default class Card {
         this._cardImage.alt = this._name;
         
         this._setEventListeners();
-        return this._element;
-        
+        return this._element; 
       }
   
     _setEventListeners() {
@@ -43,7 +40,6 @@ export default class Card {
         this._cardLikeButton.addEventListener('click', () =>{
             this._handleLikeClick()
         });
-
     }
     
     _handleLikeClick() {

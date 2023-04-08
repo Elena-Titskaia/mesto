@@ -34,6 +34,4 @@ export const settings = {
     errorClass: 'popup__error_active', // это span
     inputErrorClass: 'popup__text_error', // это красная черта unput
     inactiveButtonClass: 'popup__submit-btn_disabled',// button disabled
-
 };//ключи 
-
