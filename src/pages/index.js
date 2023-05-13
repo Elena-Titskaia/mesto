@@ -19,6 +19,8 @@ import{
   buttonAddElement
 } from '../script/utils/constants.js'
 
+console.log()
+
 const popupImageFull = new PopupWithImage(popupImageSelector)
 popupImageFull.setEventListeners();
 
@@ -55,7 +57,6 @@ const cardAddValidator = new FormValidator(settings, formElementAdd);
 [profileValidator, cardAddValidator].forEach((form)=>form.enableValidation())
 
 buttonAddElement.addEventListener('click', () => {
-  formElementAdd.reset()
   cardAddValidator.resetPopupError() 
   popupCard.open()
 }) 

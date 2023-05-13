@@ -16,6 +16,7 @@ export default class Section{
         this._container.prepend(elementDom)
     }
 }
+
 // cardList.forEach(object => { 
 //     elementsArea.append(createElement(object)) 
 // });

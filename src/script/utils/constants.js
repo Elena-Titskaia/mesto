@@ -23,7 +23,7 @@ export const initialCards = [
     title: 'Байкал',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
   },
-];
+]; 
 
 const settings = {
     formSelector: '.popup__form',// формы
@@ -67,3 +67,30 @@ export{
 // const kamchatkaImage = new URL('https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg', import.meta.url);
 // const kholmogorskyImage = new URL('https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg', import.meta.url);
 // const baikalImage = new URL('https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg', import.meta.url)
+
+// export const initialCards = [
+//   {
+//     title: 'Архыз',
+//     link: arhizImage,
+//   },
+//   {
+//     title: 'Челябинская область',
+//     link: chelyabickImage,
+//   },
+//   {
+//     title: 'Иваново',
+//     link: ivanovoImage,
+//   },
+//   {
+//     title: 'Камчатка',
+//     link: kamchatkaImage,
+//   },
+//   {
+//     title: 'Холмогорский район',
+//     link: kholmogorskyImage,
+//   },
+//   {
+//     title: 'Байкал',
+//     link: baikalImage,
+//   },
+// ];
