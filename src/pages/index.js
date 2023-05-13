@@ -19,8 +19,6 @@ import{
   buttonAddElement
 } from '../script/utils/constants.js'
 
-console.log()
-
 const popupImageFull = new PopupWithImage(popupImageSelector)
 popupImageFull.setEventListeners();
 
