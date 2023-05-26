@@ -1,0 +1,29 @@
+.popup__avatar {
+    position: fixed;
+    margin: 0;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    max-width: 430px;
+    min-height: 272px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 768px) {
+    .popup__avatar {
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .popup__avatar {
+        max-width: 282px;
+        min-height: 220px;
+    }
+}

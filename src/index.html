@@ -13,7 +13,9 @@
     </header>
     <main class="content">
       <section class="profile">
-        <div class="profile__avatar"></div>
+        <div class="profile__avatar">
+          <button type="button" class="profile__avatar-edit"></button>
+        </div>
         <div class="profile__info">
           <h1 class="profile__info-name">Жак-Ив Кусто</h1>
           <p class="profile__info-job">Исследователь океана</p>
@@ -112,6 +114,35 @@
         <img class="popup__image-card" src="#" alt="#">
         <p class="popup__image-name"></p>
     </div>
+    </section>
+    <section class="popup popup_type_confirm">
+      <form class="popup__form" id="form_type_confirm" name="form-confirm">
+      <div class="popup__confirm">
+        <h2 class="popup__title">Вы уверены?</h2>
+        <button type="submit" class="popup__submit-btn popup__submit-btn_type_confirm">Да</button>
+        <button type="button" aria-label="Закрыть" class="popup__close popup__close_type_confirm"></button>
+      </form>
+    </div>
+    </section>
+    <section class="popup popup_type_avatar">
+      <div class="popup__avatar">
+        <h2 class="popup__title">Обновить аватар</h2>
+        <form class="popup__form" id="form_type_avatar" name="form-avatar" novalidate>
+          <div class="popup__wrapper">
+          <input
+            required
+            id="avatar"
+            type="url"
+            placeholder="Ссылка на картинку"
+            name="avatar"
+            class="popup__text  popup__text_type_avatar"
+          />
+          <span id='link-error' class="popup__error link-error"></span>
+          </div>
+          <button type="submit" class="popup__submit-btn popup__submit-btn_type_avatar">Сохранить</button>
+          <button type="button" aria-label="Закрыть" class="popup__close popup__close_type_avatar"></button>
+        </form>
+      </div>
     </section>
     <footer class="footer">
       <p class="footer__copyright">© 2023. Тицкая Елена</p>

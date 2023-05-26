@@ -64,3 +64,5 @@ profileButtonEdit.addEventListener('click', () => {
   profileValidator.resetPopupError();
   popupProfile.open()
 })
+
+

@@ -1,0 +1,34 @@
+.profile__avatar-edit {
+    width: 120px;
+    min-width: 120px;
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    background-color: black;
+    opacity: 80%;
+   
+}
+
+@media screen and (max-width: 768px) {
+    .profile__avatar-edit {
+        width: 90px;
+        min-width: 90px;
+        height: 90px;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .profile__avatar-edit {
+        margin: 0 auto;
+        width: 120px;
+        min-width: 120px;
+        height: 120px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .profile__avatar-edit{
+        margin-top: 42px;
+    }
+}
