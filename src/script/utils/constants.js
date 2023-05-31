@@ -36,29 +36,48 @@ const settings = {
 
 const entityProfile = {
   profileNameSelector: '.profile__info-name',
-  profileJobSelector: '.profile__info-job'
+  profileJobSelector: '.profile__info-job',
+  profileAvatarSelector: '.profile__avatar-image'
 }
-
+//array for forms
+const allForms = {}
+//selectors
 const popupImageSelector = '.popup_type_image'
 const popupEditSelector = '.popup_type_edit'
 const popupAddCardSelector = '.popup_type_add'
+const popupChangeAvatarSelector = '.popup_type_avatar'
+const popupConfirmSelector = '.popup_type_confirm'
+//forms [id]
 const elementsArea = document.querySelector('.elements');
 const profileEditForm = document.querySelector('#form_type_profile'); 
 const formElementAdd = document.querySelector('#form_type_add');
+const formElementChangeAvatar = document.querySelector("#form_type_avatar");//new
+const formElementConfirm = document.querySelector('#form_type_confirm');
+//buttons
 const profileButtonEdit = document.querySelector('.profile__button-edit'); 
 const buttonAddElement = document.querySelector('.profile__button-add');
+const buttonChangeAvatar = document.querySelector('.profile__avatar-edit');
+//elements
+const avatarElementImage = document.querySelector('.profile__avatar-image');
 
 export{
   settings,
   entityProfile,
+  allForms,
+  popupImageSelector,
   popupEditSelector,
   popupAddCardSelector,
-  popupImageSelector,
+  popupChangeAvatarSelector,
+  popupConfirmSelector,
   elementsArea,
   profileEditForm,
   formElementAdd,
+  formElementChangeAvatar,
+  formElementConfirm,
   profileButtonEdit,
-  buttonAddElement
+  buttonAddElement,
+  buttonChangeAvatar,
+  avatarElementImage
 }
 
 // const arhizImage = new URL('https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg', import.meta.url);

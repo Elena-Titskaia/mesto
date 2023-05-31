@@ -14,11 +14,14 @@
     <main class="content">
       <section class="profile">
         <div class="profile__avatar">
-          <button type="button" class="profile__avatar-edit"></button>
+          <button type="button" class="profile__avatar-edit">
+            <img class="profile__avatar-image" src="#" alt="аватар пользователя">
+            </img>
+          </button>
         </div>
         <div class="profile__info">
-          <h1 class="profile__info-name">Жак-Ив Кусто</h1>
-          <p class="profile__info-job">Исследователь океана</p>
+          <h1 class="profile__info-name"></h1>
+          <p class="profile__info-job"></p>
           <button type="button" aria-label="Редактирование профиля" class="profile__button-edit"></button>
         </div>
         <button type="button" aria-label="Добавление нового изображения" class="profile__button-add"></button>
@@ -31,7 +34,10 @@
               <img class="element__image" src="#" alt="#" />
               <div class="element__data">
                 <h2 class="element__title"></h2>
+                <div class="elements__likes">
                 <button type="button" aria-label="Нравится" class="element__like"></button>
+                <span class="element__number"></span>
+              </div>
               </div>
             </div>
           </article>
@@ -41,14 +47,14 @@
     <section class="popup popup_type_edit">
       <div class="popup__container">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form" id="form_type_profile" name="form-profile" novalidate>
+        <form class="popup__form" id="form_type_profile" name="formProfile" novalidate>
           <div class="popup__wrapper">
           <input
             required
             placeholder="Имя"
             id="name"
             type="text"
-            value="Лена Тицкая"
+            value=""
             name="username"
             class="popup__text  popup__text_type_name"
             minlength="2"
@@ -78,7 +84,7 @@
     <section class="popup popup_type_add">
       <div class="popup__card">
         <h2 class="popup__title">Новое место</h2>
-        <form class="popup__form" id="form_type_add" name="form-card" novalidate>
+        <form class="popup__form" id="form_type_add" name="formCard" novalidate>
           <div class="popup__wrapper">
             <input
             required
@@ -116,9 +122,9 @@
     </div>
     </section>
     <section class="popup popup_type_confirm">
-      <form class="popup__form" id="form_type_confirm" name="form-confirm">
+      <form class="popup__form" id="form_type_confirm" name="formConfirm">
       <div class="popup__confirm">
-        <h2 class="popup__title">Вы уверены?</h2>
+        <h2 class="popup__title popup__title_confirm">Вы уверены?</h2>
         <button type="submit" class="popup__submit-btn popup__submit-btn_type_confirm">Да</button>
         <button type="button" aria-label="Закрыть" class="popup__close popup__close_type_confirm"></button>
       </form>
@@ -127,11 +133,11 @@
     <section class="popup popup_type_avatar">
       <div class="popup__avatar">
         <h2 class="popup__title">Обновить аватар</h2>
-        <form class="popup__form" id="form_type_avatar" name="form-avatar" novalidate>
+        <form class="popup__form" id="form_type_avatar" name="formAvatar" novalidate>
           <div class="popup__wrapper">
           <input
             required
-            id="avatar"
+            id="link"
             type="url"
             placeholder="Ссылка на картинку"
             name="avatar"

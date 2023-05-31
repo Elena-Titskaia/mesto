@@ -6,11 +6,20 @@ export default class PopupWithForm extends Popup{
     this._handleFormSubmit = handleFormSubmit;
     this._formElements = this._popup.querySelector('.popup__form');
     this._inputList = this._formElements.querySelectorAll('.popup__text');
-    this._submitButton = this._formElements.querySelector('popup__submit-btn');
-
-    
+    this._submitButton = this._formElements.querySelector('.popup__submit-btn'); 
+    this._originalSubmitButton = this._submitButton.textContent
 }
- getInputsValue(){
+
+setEventListeners(){
+    super.setEventListeners();
+    this._formElements.addEventListener('submit', (event) => {
+        event.preventDefault();
+        this._submitButton.textContent = `${this._submitButton.textContent}...`
+        this._handleFormSubmit(this._getInputsValue());
+    })
+}
+
+_getInputsValue(){
     this._inputValues = {};
     this._inputList.forEach(input => {
         this._inputValues[input.name] = input.value
@@ -18,16 +27,16 @@ export default class PopupWithForm extends Popup{
     return this._inputValues;
 
 }
+
 setInputsValue(dataUser){
-    
     this._inputList.forEach(input => {
         input.value = dataUser[input.name]
     })
 }
-setEventListeners(){
-    super.setEventListeners();
-    this._formElements.addEventListener('submit', this._handleFormSubmit)
-    }
+
+setupDefaultButtonText(){
+    this._submitButton.textContent = this._originalSubmitButton;
+}
 
 close(){
     super.close();

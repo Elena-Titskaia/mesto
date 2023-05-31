@@ -2,6 +2,7 @@ export default class UserInfo{
     constructor( entityProfile ){
     this._profileName = document.querySelector(entityProfile.profileNameSelector);
     this._profileInfo = document.querySelector(entityProfile.profileJobSelector);
+    this._profileAvatar = document.querySelector(entityProfile.profileAvatarSelector)
     }
 
     getUserInfo(){
@@ -11,8 +12,9 @@ export default class UserInfo{
         }
     }
 
-    setUserInfo(dataUser){
-        this._profileName.textContent = dataUser.username,
-        this._profileInfo.textContent = dataUser.profession
+    setUserInfo({ username, profession, avatar }){
+        this._profileName.textContent = username,
+        this._profileInfo.textContent = profession,
+        this._profileAvatar.src = avatar
     }
 }

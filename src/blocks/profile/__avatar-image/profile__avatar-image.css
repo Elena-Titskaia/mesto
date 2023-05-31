@@ -1,15 +1,12 @@
-.profile__avatar {
+.profile__avatar-image {
     width: 120px;
     min-width: 120px;
     height: 120px;
-    background-size: cover;
-    background-position: center;
     border-radius: 50%;
-
 }
 
 @media screen and (max-width: 768px) {
-    .profile__avatar {
+    .profile__avatar-image {
         width: 90px;
         min-width: 90px;
         height: 90px;
@@ -17,16 +14,10 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
-    .profile__avatar {
+    .profile__avatar-image {
         margin: 0 auto;
         width: 120px;
         min-width: 120px;
         height: 120px;
-    }
-}
-
-@media screen and (max-width: 320px) {
-    .profile__avatar {
-        margin-top: 42px;
     }
 }
